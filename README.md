@@ -2,7 +2,7 @@
 RSII Seminarski
 
 IMPORTANT !!! 
-Restore DB backup file
+Restore DB backup file - AMADB.v1
 
 Desktop aplikacija:
   Username : desktop
