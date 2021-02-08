@@ -1,9 +1,11 @@
-﻿using AMA.Models.DTOS;
+﻿using AMA.Common.Contracts;
+using AMA.Models.DTOS;
 using AMA.Repositories.Interfaces;
 using AMA.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Stripe;
 using System.Linq;
 
 namespace AMA.Api.Controllers
@@ -153,23 +155,49 @@ namespace AMA.Api.Controllers
             return Ok(_repositoryPayment.FindByUser(userId));
         }
 
-        [HttpPost("user/payment")]
-        public IActionResult MakePayment(MakePaymentRequest request)
+        [HttpPost("user/pay")]
+        public IActionResult UpdatePackage([FromBody]PaymentRequest payment)
         {
-            if (!ModelState.IsValid)
-                return BadRequest();
-
             var userId = int.Parse(User.Claims.Where(x => x.Type == "Id").FirstOrDefault().Value);
+            var user = _repositoryUser.TryFind(userId);
 
-            if (_repositoryUser.TryFind(userId) == null)
-                return BadRequest($"User with id: {userId} does not exist");
+            if (user is null)
+            {
+                return BadRequest("User not found.");
+            }
 
-            if (_repositoryUser.TryFind(request.ToUserId) == null)
-                return BadRequest($"User with id: {request.ToUserId} does not exist");
+            var charge = new ChargeCreateOptions()
+            {
+                Amount = payment.Amount * 100,
+                Currency = "EUR",
+                Description = payment.Description,
+                Source = payment.Token
+            };
 
-            _userService.MakePayment(request, userId);
+            var service = new ChargeService();
 
-            return Ok();
+            try
+            {
+                var response = service.Create(charge);
+
+                if (response.Status == "succeeded")
+                {
+                    var request = new MakePaymentRequest 
+                    { 
+                        Amount = (decimal)charge.Amount,
+                        ToUserId = payment.ToUserId,
+                        Description = payment.Description 
+                    };
+                    _userService.MakePayment(request, userId);
+                    return Ok();
+                }
+
+                return BadRequest("Unable to pay.");
+            }
+            catch (StripeException ex)
+            {
+                throw ex;
+            }
         }
     }
 }

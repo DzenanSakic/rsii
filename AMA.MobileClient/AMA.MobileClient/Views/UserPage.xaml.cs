@@ -25,15 +25,6 @@ namespace AMA.MobileClient.Views
         {
             base.OnAppearing();
 
-            //if (_user.Id != ApiService.LoggedInUserId)
-            //{
-            //    logoutButton.IsVisible = false;
-            //}
-
-            //var followers = await _userService.Get<IList<UserFollowDto>>(null, $"followers/{_user.Id}");
-
-            //if (followers.Any(x => x.Id == ApiService.LoggedInUserId))
-            //    followButton.Text = "Unfollow";
         }
         private async void followButton_Clicked(object sender, EventArgs e)
         {
@@ -54,7 +45,14 @@ namespace AMA.MobileClient.Views
 
         private async void payButton_Clicked(object sender, EventArgs e)
         {
-
+            try
+            {
+                await Navigation.PushModalAsync(new NavigationPage(new PaymentPage(_user)));
+            }
+            catch (Exception ex)
+            {
+                await Application.Current.MainPage.DisplayAlert("Error", ex.Message, "OK");
+            }
         }
 
         private async void Cancel_Clicked(object sender, EventArgs e)

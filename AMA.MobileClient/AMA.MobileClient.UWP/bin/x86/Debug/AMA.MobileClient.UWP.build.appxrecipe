@@ -10,22 +10,22 @@
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>ec0cc741-fd3e-485c-81be-68815c480690</PackageIdentityName>
     <PackageIdentityPublisher>CN=a128491a-b769-447c-8453-0c2147acfea7</PackageIdentityPublisher>
-    <IntermediateOutputPath>C:\Users\Dzenan\source\repos\AMA.Api\AMA.MobileClient\AMA.MobileClient.UWP\obj\x86\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\Dzenan\Desktop\RSIIGit\rsii\AMA.MobileClient\AMA.MobileClient.UWP\obj\x86\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType></RemoteDeploymentType>
     <PackageRegistrationPath></PackageRegistrationPath>
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
-    <LayoutDir>C:\Users\Dzenan\source\repos\AMA.Api\AMA.MobileClient\AMA.MobileClient.UWP\bin\x86\Debug\AppX</LayoutDir>
+    <LayoutDir>C:\Users\Dzenan\Desktop\RSIIGit\rsii\AMA.MobileClient\AMA.MobileClient.UWP\bin\x86\Debug\AppX</LayoutDir>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\Dzenan\source\repos\AMA.Api\AMA.MobileClient\AMA.MobileClient.UWP\bin\x86\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\Dzenan\Desktop\RSIIGit\rsii\AMA.MobileClient\AMA.MobileClient.UWP\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\Dzenan\source\repos\AMA.Api\AMA.MobileClient\AMA.MobileClient.UWP\bin\x86\Debug\AMA.MobileClient.UWP.exe">
+    <AppxPackagedFile Include="C:\Users\Dzenan\Desktop\RSIIGit\rsii\AMA.MobileClient\AMA.MobileClient.UWP\bin\x86\Debug\AMA.MobileClient.UWP.exe">
       <PackagePath>entrypoint\AMA.MobileClient.UWP.exe</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Dzenan\.nuget\packages\flurl\3.0.1\lib\netstandard2.0\Flurl.dll">
@@ -526,6 +526,9 @@
     <AppxPackagedFile Include="C:\Users\Dzenan\.nuget\packages\runtime.win10-x86.microsoft.netcore.universalwindowsplatform\6.1.9\runtimes\win10-x86\lib\uap10.0.15138\netstandard.dll">
       <PackagePath>netstandard.dll</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Dzenan\.nuget\packages\stripe.net\35.6.0\lib\netstandard2.0\Stripe.net.dll">
+      <PackagePath>Stripe.net.dll</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Dzenan\.nuget\packages\syncfusion.licensing\18.4.0.41\lib\uap10.0\Syncfusion.Licensing.dll">
       <PackagePath>Syncfusion.Licensing.dll</PackagePath>
     </AppxPackagedFile>
@@ -541,8 +544,20 @@
     <AppxPackagedFile Include="C:\Users\Dzenan\.nuget\packages\syncfusion.xamarin.core\18.4.0.41\lib\uap10.0\Syncfusion.Core.XForms.dll">
       <PackagePath>Syncfusion.Core.XForms.dll</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Dzenan\.nuget\packages\system.configuration.configurationmanager\4.5.0\lib\netstandard2.0\System.Configuration.ConfigurationManager.dll">
+      <PackagePath>System.Configuration.ConfigurationManager.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Dzenan\.nuget\packages\system.memory\4.5.0\lib\netstandard2.0\System.Memory.dll">
+      <PackagePath>System.Memory.dll</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Dzenan\.nuget\packages\system.runtime.compilerservices.unsafe\4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll">
       <PackagePath>System.Runtime.CompilerServices.Unsafe.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Dzenan\.nuget\packages\system.security.cryptography.protecteddata\4.5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll">
+      <PackagePath>System.Security.Cryptography.ProtectedData.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Dzenan\.nuget\packages\system.security.permissions\4.5.0\lib\netstandard2.0\System.Security.Permissions.dll">
+      <PackagePath>System.Security.Permissions.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Dzenan\.nuget\packages\system.text.encoding.codepages\4.5.1\runtimes\win\lib\netstandard2.0\System.Text.Encoding.CodePages.dll">
       <PackagePath>System.Text.Encoding.CodePages.dll</PackagePath>
@@ -565,10 +580,10 @@
     <AppxPackagedFile Include="C:\Users\Dzenan\.nuget\packages\xamarin.forms\5.0.0.1931\lib\uap10.0.16299\Xamarin.Forms.Xaml.dll">
       <PackagePath>Xamarin.Forms.Xaml.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dzenan\source\repos\AMA.Api\AMA.MobileClient\AMA.MobileClient\bin\Debug\netstandard2.0\AMA.MobileClient.dll">
+    <AppxPackagedFile Include="C:\Users\Dzenan\Desktop\RSIIGit\rsii\AMA.MobileClient\AMA.MobileClient\bin\Debug\netstandard2.0\AMA.MobileClient.dll">
       <PackagePath>AMA.MobileClient.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dzenan\source\repos\AMA.Api\AMA.MobileClient\AMA.MobileClient\bin\Debug\netstandard2.0\AMA.Common.dll">
+    <AppxPackagedFile Include="C:\Users\Dzenan\Desktop\RSIIGit\rsii\AMA.MobileClient\AMA.MobileClient\bin\Debug\netstandard2.0\AMA.Common.dll">
       <PackagePath>AMA.Common.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Microsoft\Xamarin\NuGet\win2d.uwp\1.20.0\lib\uap10.0\Microsoft.Graphics.Canvas.winmd">
@@ -592,136 +607,136 @@
     <AppxPackagedFile Include="C:\Users\Dzenan\.nuget\packages\syncfusion.xamarin.buttons\18.4.0.41\lib\uap10.0\Syncfusion.Buttons.XForms.UWP\Assets\sfbutton_Segoe MDL2 Assets.ttf">
       <PackagePath>Syncfusion.Buttons.XForms.UWP\Assets\sfbutton_Segoe MDL2 Assets.ttf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dzenan\source\repos\AMA.Api\AMA.MobileClient\AMA.MobileClient.UWP\Properties\Default.rd.xml">
+    <AppxPackagedFile Include="C:\Users\Dzenan\Desktop\RSIIGit\rsii\AMA.MobileClient\AMA.MobileClient.UWP\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dzenan\source\repos\AMA.Api\AMA.MobileClient\AMA.MobileClient.UWP\Assets\LargeTile.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\Dzenan\Desktop\RSIIGit\rsii\AMA.MobileClient\AMA.MobileClient.UWP\Assets\LargeTile.scale-100.png">
       <PackagePath>Assets\LargeTile.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dzenan\source\repos\AMA.Api\AMA.MobileClient\AMA.MobileClient.UWP\Assets\LargeTile.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Dzenan\Desktop\RSIIGit\rsii\AMA.MobileClient\AMA.MobileClient.UWP\Assets\LargeTile.scale-200.png">
       <PackagePath>Assets\LargeTile.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dzenan\source\repos\AMA.Api\AMA.MobileClient\AMA.MobileClient.UWP\Assets\LargeTile.scale-400.png">
+    <AppxPackagedFile Include="C:\Users\Dzenan\Desktop\RSIIGit\rsii\AMA.MobileClient\AMA.MobileClient.UWP\Assets\LargeTile.scale-400.png">
       <PackagePath>Assets\LargeTile.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dzenan\source\repos\AMA.Api\AMA.MobileClient\AMA.MobileClient.UWP\Assets\SmallTile.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\Dzenan\Desktop\RSIIGit\rsii\AMA.MobileClient\AMA.MobileClient.UWP\Assets\SmallTile.scale-100.png">
       <PackagePath>Assets\SmallTile.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dzenan\source\repos\AMA.Api\AMA.MobileClient\AMA.MobileClient.UWP\Assets\SmallTile.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Dzenan\Desktop\RSIIGit\rsii\AMA.MobileClient\AMA.MobileClient.UWP\Assets\SmallTile.scale-200.png">
       <PackagePath>Assets\SmallTile.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dzenan\source\repos\AMA.Api\AMA.MobileClient\AMA.MobileClient.UWP\Assets\SmallTile.scale-400.png">
+    <AppxPackagedFile Include="C:\Users\Dzenan\Desktop\RSIIGit\rsii\AMA.MobileClient\AMA.MobileClient.UWP\Assets\SmallTile.scale-400.png">
       <PackagePath>Assets\SmallTile.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dzenan\source\repos\AMA.Api\AMA.MobileClient\AMA.MobileClient.UWP\Assets\SplashScreen.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\Dzenan\Desktop\RSIIGit\rsii\AMA.MobileClient\AMA.MobileClient.UWP\Assets\SplashScreen.scale-100.png">
       <PackagePath>Assets\SplashScreen.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dzenan\source\repos\AMA.Api\AMA.MobileClient\AMA.MobileClient.UWP\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Dzenan\Desktop\RSIIGit\rsii\AMA.MobileClient\AMA.MobileClient.UWP\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dzenan\source\repos\AMA.Api\AMA.MobileClient\AMA.MobileClient.UWP\Assets\SplashScreen.scale-400.png">
+    <AppxPackagedFile Include="C:\Users\Dzenan\Desktop\RSIIGit\rsii\AMA.MobileClient\AMA.MobileClient.UWP\Assets\SplashScreen.scale-400.png">
       <PackagePath>Assets\SplashScreen.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dzenan\source\repos\AMA.Api\AMA.MobileClient\AMA.MobileClient.UWP\Assets\Square150x150Logo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\Dzenan\Desktop\RSIIGit\rsii\AMA.MobileClient\AMA.MobileClient.UWP\Assets\Square150x150Logo.scale-100.png">
       <PackagePath>Assets\Square150x150Logo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dzenan\source\repos\AMA.Api\AMA.MobileClient\AMA.MobileClient.UWP\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Dzenan\Desktop\RSIIGit\rsii\AMA.MobileClient\AMA.MobileClient.UWP\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dzenan\source\repos\AMA.Api\AMA.MobileClient\AMA.MobileClient.UWP\Assets\Square150x150Logo.scale-400.png">
+    <AppxPackagedFile Include="C:\Users\Dzenan\Desktop\RSIIGit\rsii\AMA.MobileClient\AMA.MobileClient.UWP\Assets\Square150x150Logo.scale-400.png">
       <PackagePath>Assets\Square150x150Logo.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dzenan\source\repos\AMA.Api\AMA.MobileClient\AMA.MobileClient.UWP\Assets\Square44x44Logo.altform-unplated_targetsize-16.png">
+    <AppxPackagedFile Include="C:\Users\Dzenan\Desktop\RSIIGit\rsii\AMA.MobileClient\AMA.MobileClient.UWP\Assets\Square44x44Logo.altform-unplated_targetsize-16.png">
       <PackagePath>Assets\Square44x44Logo.altform-unplated_targetsize-16.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dzenan\source\repos\AMA.Api\AMA.MobileClient\AMA.MobileClient.UWP\Assets\Square44x44Logo.altform-unplated_targetsize-256.png">
+    <AppxPackagedFile Include="C:\Users\Dzenan\Desktop\RSIIGit\rsii\AMA.MobileClient\AMA.MobileClient.UWP\Assets\Square44x44Logo.altform-unplated_targetsize-256.png">
       <PackagePath>Assets\Square44x44Logo.altform-unplated_targetsize-256.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dzenan\source\repos\AMA.Api\AMA.MobileClient\AMA.MobileClient.UWP\Assets\Square44x44Logo.altform-unplated_targetsize-48.png">
+    <AppxPackagedFile Include="C:\Users\Dzenan\Desktop\RSIIGit\rsii\AMA.MobileClient\AMA.MobileClient.UWP\Assets\Square44x44Logo.altform-unplated_targetsize-48.png">
       <PackagePath>Assets\Square44x44Logo.altform-unplated_targetsize-48.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dzenan\source\repos\AMA.Api\AMA.MobileClient\AMA.MobileClient.UWP\Assets\Square44x44Logo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\Dzenan\Desktop\RSIIGit\rsii\AMA.MobileClient\AMA.MobileClient.UWP\Assets\Square44x44Logo.scale-100.png">
       <PackagePath>Assets\Square44x44Logo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dzenan\source\repos\AMA.Api\AMA.MobileClient\AMA.MobileClient.UWP\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Dzenan\Desktop\RSIIGit\rsii\AMA.MobileClient\AMA.MobileClient.UWP\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dzenan\source\repos\AMA.Api\AMA.MobileClient\AMA.MobileClient.UWP\Assets\Square44x44Logo.scale-400.png">
+    <AppxPackagedFile Include="C:\Users\Dzenan\Desktop\RSIIGit\rsii\AMA.MobileClient\AMA.MobileClient.UWP\Assets\Square44x44Logo.scale-400.png">
       <PackagePath>Assets\Square44x44Logo.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dzenan\source\repos\AMA.Api\AMA.MobileClient\AMA.MobileClient.UWP\Assets\Square44x44Logo.targetsize-16.png">
+    <AppxPackagedFile Include="C:\Users\Dzenan\Desktop\RSIIGit\rsii\AMA.MobileClient\AMA.MobileClient.UWP\Assets\Square44x44Logo.targetsize-16.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-16.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dzenan\source\repos\AMA.Api\AMA.MobileClient\AMA.MobileClient.UWP\Assets\Square44x44Logo.targetsize-256.png">
+    <AppxPackagedFile Include="C:\Users\Dzenan\Desktop\RSIIGit\rsii\AMA.MobileClient\AMA.MobileClient.UWP\Assets\Square44x44Logo.targetsize-256.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-256.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dzenan\source\repos\AMA.Api\AMA.MobileClient\AMA.MobileClient.UWP\Assets\Square44x44Logo.targetsize-48.png">
+    <AppxPackagedFile Include="C:\Users\Dzenan\Desktop\RSIIGit\rsii\AMA.MobileClient\AMA.MobileClient.UWP\Assets\Square44x44Logo.targetsize-48.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-48.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dzenan\source\repos\AMA.Api\AMA.MobileClient\AMA.MobileClient.UWP\Assets\StoreLogo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\Dzenan\Desktop\RSIIGit\rsii\AMA.MobileClient\AMA.MobileClient.UWP\Assets\StoreLogo.scale-100.png">
       <PackagePath>Assets\StoreLogo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dzenan\source\repos\AMA.Api\AMA.MobileClient\AMA.MobileClient.UWP\Assets\StoreLogo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Dzenan\Desktop\RSIIGit\rsii\AMA.MobileClient\AMA.MobileClient.UWP\Assets\StoreLogo.scale-200.png">
       <PackagePath>Assets\StoreLogo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dzenan\source\repos\AMA.Api\AMA.MobileClient\AMA.MobileClient.UWP\Assets\StoreLogo.scale-400.png">
+    <AppxPackagedFile Include="C:\Users\Dzenan\Desktop\RSIIGit\rsii\AMA.MobileClient\AMA.MobileClient.UWP\Assets\StoreLogo.scale-400.png">
       <PackagePath>Assets\StoreLogo.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dzenan\source\repos\AMA.Api\AMA.MobileClient\AMA.MobileClient.UWP\Assets\Wide310x150Logo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\Dzenan\Desktop\RSIIGit\rsii\AMA.MobileClient\AMA.MobileClient.UWP\Assets\Wide310x150Logo.scale-100.png">
       <PackagePath>Assets\Wide310x150Logo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dzenan\source\repos\AMA.Api\AMA.MobileClient\AMA.MobileClient.UWP\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Dzenan\Desktop\RSIIGit\rsii\AMA.MobileClient\AMA.MobileClient.UWP\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dzenan\source\repos\AMA.Api\AMA.MobileClient\AMA.MobileClient.UWP\Assets\Wide310x150Logo.scale-400.png">
+    <AppxPackagedFile Include="C:\Users\Dzenan\Desktop\RSIIGit\rsii\AMA.MobileClient\AMA.MobileClient.UWP\Assets\Wide310x150Logo.scale-400.png">
       <PackagePath>Assets\Wide310x150Logo.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dzenan\source\repos\AMA.Api\AMA.MobileClient\AMA.MobileClient.UWP\xamarin_logo.png">
+    <AppxPackagedFile Include="C:\Users\Dzenan\Desktop\RSIIGit\rsii\AMA.MobileClient\AMA.MobileClient.UWP\xamarin_logo.png">
       <PackagePath>xamarin_logo.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dzenan\source\repos\AMA.Api\AMA.MobileClient\AMA.MobileClient.UWP\add.png">
+    <AppxPackagedFile Include="C:\Users\Dzenan\Desktop\RSIIGit\rsii\AMA.MobileClient\AMA.MobileClient.UWP\add.png">
       <PackagePath>add.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dzenan\source\repos\AMA.Api\AMA.MobileClient\AMA.MobileClient.UWP\save.png">
+    <AppxPackagedFile Include="C:\Users\Dzenan\Desktop\RSIIGit\rsii\AMA.MobileClient\AMA.MobileClient.UWP\save.png">
       <PackagePath>save.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dzenan\source\repos\AMA.Api\AMA.MobileClient\AMA.MobileClient.UWP\cancel.png">
+    <AppxPackagedFile Include="C:\Users\Dzenan\Desktop\RSIIGit\rsii\AMA.MobileClient\AMA.MobileClient.UWP\cancel.png">
       <PackagePath>cancel.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dzenan\source\repos\AMA.Api\AMA.MobileClient\AMA.MobileClient.UWP\bin\x86\Debug\AMA.MobileClient.UWP.xr.xml">
+    <AppxPackagedFile Include="C:\Users\Dzenan\Desktop\RSIIGit\rsii\AMA.MobileClient\AMA.MobileClient.UWP\bin\x86\Debug\AMA.MobileClient.UWP.xr.xml">
       <PackagePath>AMA.MobileClient.UWP.xr.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dzenan\source\repos\AMA.Api\AMA.MobileClient\AMA.MobileClient.UWP\bin\x86\Debug\App.xbf">
+    <AppxPackagedFile Include="C:\Users\Dzenan\Desktop\RSIIGit\rsii\AMA.MobileClient\AMA.MobileClient.UWP\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dzenan\source\repos\AMA.Api\AMA.MobileClient\AMA.MobileClient.UWP\bin\x86\Debug\MainPage.xbf">
+    <AppxPackagedFile Include="C:\Users\Dzenan\Desktop\RSIIGit\rsii\AMA.MobileClient\AMA.MobileClient.UWP\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.UniversalCRT.Debug\10.0.17763.0\\redist\Debug\x86\ucrtbased.dll">
@@ -733,10 +748,10 @@
     <AppxPackagedFile Include="C:\Users\Dzenan\.nuget\packages\microsoft.ui.xaml\2.4.3\buildTransitive\..\lib\uap10.0\Microsoft.UI.Xaml.winmd">
       <PackagePath>WinMetadata\Microsoft.UI.Xaml.winmd</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dzenan\source\repos\AMA.Api\AMA.MobileClient\AMA.MobileClient.UWP\bin\x86\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\Users\Dzenan\Desktop\RSIIGit\rsii\AMA.MobileClient\AMA.MobileClient.UWP\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dzenan\source\repos\AMA.Api\AMA.MobileClient\AMA.MobileClient.UWP\bin\x86\Debug\Core\AMA.MobileClient.UWP.exe">
+    <AppxPackagedFile Include="C:\Users\Dzenan\Desktop\RSIIGit\rsii\AMA.MobileClient\AMA.MobileClient.UWP\bin\x86\Debug\Core\AMA.MobileClient.UWP.exe">
       <PackagePath>AMA.MobileClient.UWP.exe</PackagePath>
     </AppxPackagedFile>
   </ItemGroup>

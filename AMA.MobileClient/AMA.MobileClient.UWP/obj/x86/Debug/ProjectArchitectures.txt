@@ -1,1 +1,1 @@
-C:\Users\Dzenan\source\repos\AMA.Api\AMA.MobileClient\AMA.MobileClient.UWP\AMA.MobileClient.UWP.csproj;x86
+C:\Users\Dzenan\Desktop\RSIIGit\rsii\AMA.MobileClient\AMA.MobileClient.UWP\AMA.MobileClient.UWP.csproj;x86

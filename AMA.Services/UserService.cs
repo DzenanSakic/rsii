@@ -19,13 +19,15 @@ namespace AMA.Services
             IRepositoryUserRole repositoryUserRole,
             IRepositoryBan repositoryBan,
             IRepositoryMessage repositoryMessage,
-            PasswordHasher passwordHasher)
+            PasswordHasher passwordHasher,
+            IRepositoryPayment repositoryPayment)
         {
             _repositoryUser = repositoryUser;
             _repositoryUserRole = repositoryUserRole;
             _repositoryBan = repositoryBan;
             _repositoryMessage = repositoryMessage;
             _passwordHasher = passwordHasher;
+            _repositoryPayment = repositoryPayment;
         }
         public bool IsValidUserCredentials(string username, string password)
         {
@@ -129,8 +131,12 @@ namespace AMA.Services
             {
                 FromUserId = fromUserId,
                 ToUserId = request.ToUserId,
-                Amount = request.Amount
+                Amount = request.Amount,
+                Description = request.Description,
+                Status = Common.Enumerations.PaymentStatus.Completed
             };
+             
+            _repositoryPayment.Insert(payment);
         }
     }
 }

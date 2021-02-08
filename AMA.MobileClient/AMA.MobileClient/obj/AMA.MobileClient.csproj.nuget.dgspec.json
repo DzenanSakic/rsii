@@ -119,6 +119,10 @@
               "version": "[2.0.3, )",
               "autoReferenced": true
             },
+            "Stripe.net": {
+              "target": "Package",
+              "version": "[35.6.0, )"
+            },
             "Syncfusion.Xamarin.Buttons": {
               "target": "Package",
               "version": "[18.4.0.41, )"

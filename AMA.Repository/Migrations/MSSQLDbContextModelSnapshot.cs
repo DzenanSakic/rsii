@@ -188,9 +188,6 @@ namespace AMA.Repositories.Migrations
                     b.Property<int>("FromUserId")
                         .HasColumnType("int");
 
-                    b.Property<int>("PaypalId")
-                        .HasColumnType("int");
-
                     b.Property<int>("Status")
                         .HasColumnType("int");
 

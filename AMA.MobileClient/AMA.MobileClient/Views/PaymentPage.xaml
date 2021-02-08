@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="AMA.MobileClient.Views.PaymentPage">
+
+    <ContentPage.Content>
+        <StackLayout Padding="20">
+            <Label Text="To read more posts please subscribe for premium package. The charged fee for package is 10 Euro." 
+                        LineBreakMode="NoWrap" 
+                        Style="{DynamicResource ListItemTextStyle}" 
+                        FontSize="16" />
+            <Label Text="Credit card number" 
+                        LineBreakMode="NoWrap" 
+                        Style="{DynamicResource ListItemTextStyle}" 
+                        FontSize="14" />
+            <Entry Text="{Binding CreditCardNumber}" Placeholder="Enter your credit card number"></Entry>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Year" 
+                        LineBreakMode="NoWrap" 
+                        Style="{DynamicResource ListItemTextStyle}" 
+                        FontSize="14" />
+                <Entry Text="{Binding ExpiryYear}" Placeholder="Expiry date"></Entry>
+                <Label Text="Month" 
+                        LineBreakMode="NoWrap" 
+                        Style="{DynamicResource ListItemTextStyle}" 
+                        FontSize="14" />
+                <Entry Text="{Binding ExpiryMonth}" Placeholder="Expiry date"></Entry>
+                <Label Text="CVC" 
+                        LineBreakMode="NoWrap" 
+                        Style="{DynamicResource ListItemTextStyle}" 
+                        FontSize="14" />
+                <Entry Text="{Binding CVC}" Placeholder="CVV"></Entry>
+                
+            </StackLayout>
+
+            <StackLayout>
+                <Entry Text="{Binding Description}" Placeholder="Description"></Entry>
+                <Entry Text="{Binding Amount}" Placeholder="Amount"></Entry>
+            </StackLayout>
+            
+            <StackLayout>
+                <Button Text="Pay" Clicked="Button_Clicked"></Button>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

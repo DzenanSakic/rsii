@@ -9,5 +9,6 @@ namespace AMA.Models.DTOS
         public int ToUserId { get; set; }
         [Required]
         public decimal Amount { get; set; }
+        public string Description { get; set; }
     }
 }

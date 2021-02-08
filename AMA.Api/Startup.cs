@@ -16,6 +16,7 @@ using AMA.Repositories.Repository.MSSQL;
 using AMA.Services.Helpers;
 using Microsoft.IdentityModel.Logging;
 using Microsoft.OpenApi.Models;
+using Stripe;
 
 namespace AMA.Api
 {
@@ -147,6 +148,8 @@ namespace AMA.Api
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "AskMeAnything API");
             });
+
+            StripeConfiguration.ApiKey = "sk_test_51IIgsdA1kW8vdqJdraLN8o4nhMPToY5ciVdT6MQow7gRCcdE4t8VdTEnYdbIV2DS94cqoaFnxl7JaL3z08Is0UK300Hd8lonIG";
         }
     }
 }

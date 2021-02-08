@@ -11,3 +11,16 @@ C:\Users\Dzenan\source\repos\AMA.Api\AMA.Models\obj\Debug\netcoreapp3.1\AMA.Mode
 C:\Users\Dzenan\source\repos\AMA.Api\AMA.Models\obj\Debug\netcoreapp3.1\AMA.Models.csproj.CopyComplete
 C:\Users\Dzenan\source\repos\AMA.Api\AMA.Models\obj\Debug\netcoreapp3.1\AMA.Models.dll
 C:\Users\Dzenan\source\repos\AMA.Api\AMA.Models\obj\Debug\netcoreapp3.1\AMA.Models.pdb
+C:\Users\Dzenan\Desktop\RSIIGit\rsii\AMA.Models\bin\Debug\netcoreapp3.1\AMA.Models.deps.json
+C:\Users\Dzenan\Desktop\RSIIGit\rsii\AMA.Models\bin\Debug\netcoreapp3.1\AMA.Models.runtimeconfig.json
+C:\Users\Dzenan\Desktop\RSIIGit\rsii\AMA.Models\bin\Debug\netcoreapp3.1\AMA.Models.runtimeconfig.dev.json
+C:\Users\Dzenan\Desktop\RSIIGit\rsii\AMA.Models\bin\Debug\netcoreapp3.1\AMA.Models.dll
+C:\Users\Dzenan\Desktop\RSIIGit\rsii\AMA.Models\bin\Debug\netcoreapp3.1\AMA.Models.pdb
+C:\Users\Dzenan\Desktop\RSIIGit\rsii\AMA.Models\bin\Debug\netcoreapp3.1\AMA.Common.dll
+C:\Users\Dzenan\Desktop\RSIIGit\rsii\AMA.Models\bin\Debug\netcoreapp3.1\AMA.Common.pdb
+C:\Users\Dzenan\Desktop\RSIIGit\rsii\AMA.Models\obj\Debug\netcoreapp3.1\AMA.Models.csprojAssemblyReference.cache
+C:\Users\Dzenan\Desktop\RSIIGit\rsii\AMA.Models\obj\Debug\netcoreapp3.1\AMA.Models.AssemblyInfoInputs.cache
+C:\Users\Dzenan\Desktop\RSIIGit\rsii\AMA.Models\obj\Debug\netcoreapp3.1\AMA.Models.AssemblyInfo.cs
+C:\Users\Dzenan\Desktop\RSIIGit\rsii\AMA.Models\obj\Debug\netcoreapp3.1\AMA.Models.csproj.CopyComplete
+C:\Users\Dzenan\Desktop\RSIIGit\rsii\AMA.Models\obj\Debug\netcoreapp3.1\AMA.Models.dll
+C:\Users\Dzenan\Desktop\RSIIGit\rsii\AMA.Models\obj\Debug\netcoreapp3.1\AMA.Models.pdb
