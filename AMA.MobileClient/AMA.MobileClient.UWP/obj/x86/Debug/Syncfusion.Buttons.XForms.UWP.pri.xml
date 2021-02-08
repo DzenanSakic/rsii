@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<PriInfo>
+	<ResourceMap name="Syncfusion.Buttons.XForms.UWP" version="1.0" primary="true">
+		<Qualifiers/>
+		<ResourceMapSubtree name="Files">
+			<ResourceMapSubtree name="Syncfusion.Buttons.XForms.UWP">
+				<NamedResource name="Syncfusion.Buttons.XForms.UWP.xr.xml" uri="ms-resource://Syncfusion.Buttons.XForms.UWP/Files/Syncfusion.Buttons.XForms.UWP/Syncfusion.Buttons.XForms.UWP.xr.xml">
+					<Candidate type="Path">
+						<Value>Syncfusion.Buttons.XForms.UWP\Syncfusion.Buttons.XForms.UWP.xr.xml</Value>
+					</Candidate>
+				</NamedResource>
+				<ResourceMapSubtree name="Assets">
+					<NamedResource name="SfButton.ttf" uri="ms-resource://Syncfusion.Buttons.XForms.UWP/Files/Syncfusion.Buttons.XForms.UWP/Assets/SfButton.ttf">
+						<Candidate type="Path">
+							<Value>Syncfusion.Buttons.XForms.UWP\Assets\SfButton.ttf</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="sfbutton_Segoe MDL2 Assets.ttf" uri="ms-resource://Syncfusion.Buttons.XForms.UWP/Files/Syncfusion.Buttons.XForms.UWP/Assets/sfbutton_Segoe MDL2 Assets.ttf">
+						<Candidate type="Path">
+							<Value>Syncfusion.Buttons.XForms.UWP\Assets\sfbutton_Segoe MDL2 Assets.ttf</Value>
+						</Candidate>
+					</NamedResource>
+				</ResourceMapSubtree>
+				<ResourceMapSubtree name="Themes">
+					<NamedResource name="Generic.xaml" uri="ms-resource://Syncfusion.Buttons.XForms.UWP/Files/Syncfusion.Buttons.XForms.UWP/Themes/Generic.xaml">
+						<Candidate type="Path">
+							<Value>Syncfusion.Buttons.XForms.UWP\Themes\Generic.xaml</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="Generic.xbf" uri="ms-resource://Syncfusion.Buttons.XForms.UWP/Files/Syncfusion.Buttons.XForms.UWP/Themes/Generic.xbf">
+						<Candidate type="EmbeddedData">
+							<Base64Value>[Embedded Binary Data]</Base64Value>
+						</Candidate>
+					</NamedResource>
+				</ResourceMapSubtree>
+			</ResourceMapSubtree>
+		</ResourceMapSubtree>
+	</ResourceMap>
+</PriInfo>

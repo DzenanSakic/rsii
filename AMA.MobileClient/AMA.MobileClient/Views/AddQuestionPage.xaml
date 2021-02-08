@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:vm="clr-namespace:AMA.MobileClient.ViewModels"
+             x:Class="AMA.MobileClient.Views.AddQuestionPage">
+
+
+    <ContentPage.BindingContext>
+        <vm:AddQuestionViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout Padding="10" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
+            <Label Text="Title:"></Label>
+            <Entry x:Name="Title"></Entry>
+
+            <Label Text="Body:"></Label>
+            <Entry x:Name="Body" ></Entry>
+
+            <Label Text="Category:"></Label>
+            <Picker ItemsSource="{Binding Categories}" 
+                        ItemDisplayBinding="{Binding Name}"
+                        SelectedItem="{Binding SelectedCategory}"
+                    SelectedIndexChanged="Category_SelectedIndexChanged"></Picker>
+
+            <Label Text="Subcategory:"></Label>
+            <Picker ItemsSource="{Binding SubCategories}" 
+                        ItemDisplayBinding="{Binding Name}"
+                        SelectedItem="{Binding SelectedSubCategory}"></Picker>
+
+            <Label Text="Tags:"></Label>
+            <Entry x:Name="Tags" ></Entry>
+
+            <Button Text="Cancel" Clicked="Cancel_Clicked"></Button>
+            <Button Text="Save" Clicked="Save_Clicked"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

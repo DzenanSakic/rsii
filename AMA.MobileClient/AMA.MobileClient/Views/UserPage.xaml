@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="AMA.MobileClient.Views.UserPage">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Back" Clicked="Cancel_Clicked"/>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="5" >
+                <StackLayout HorizontalOptions="Center">
+                    <Label Text="{Binding UserName, StringFormat='UserName: \{0}'}"
+                           FontSize="Small" HorizontalOptions="Start" />
+                    <Label Text="{Binding FirstName, StringFormat='FirstName: \{0}'}"
+                           FontSize="Small" HorizontalOptions="Start"/>
+                    <Label Text="{Binding LastName, StringFormat='LastName: \{0}'}"
+                           FontSize="Small" HorizontalOptions="Start"/>
+                    <Label Text="{Binding BirthDate, StringFormat='Born on: \{0:dd MMM, yyyy}'}"
+                           FontSize="Small" HorizontalOptions="Start"/>
+                    <Label Text="{Binding Mail, StringFormat='Email: \{0}'}"
+                           FontSize="Small" HorizontalOptions="Start"/>
+                    <Label Text="{Binding City.Name, StringFormat='City: \{0}'}"
+                           FontSize="Small" HorizontalOptions="Start"/>
+                </StackLayout>
+                <StackLayout HorizontalOptions="CenterAndExpand">
+                    <Button x:Name="followButton" Text="Follow" 
+                                     HeightRequest="35" Clicked="followButton_Clicked"></Button>
+                    <Button x:Name="messageButton" Text="Message" 
+                                    HeightRequest="35" Clicked="messageButton_Clicked"></Button>
+                    <Button x:Name="payButton" Text="Pay" 
+                                     HeightRequest="35" Clicked="payButton_Clicked"></Button>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

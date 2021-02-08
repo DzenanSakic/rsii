@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="AMA.MobileClient.Views.EditUserPage">
+
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="5" HorizontalOptions="Center">
+                <Label Text="Username: "/>
+                <Entry Text="{Binding UserName}" IsReadOnly="True" FontSize="Small"></Entry>
+                <Label Text="FirstName: "/>
+                <Entry Text="{Binding FirstName}" FontSize="Small"></Entry>
+                <Label Text="LastName: "/>
+                <Entry Text="{Binding LastName}" FontSize="Small"></Entry>
+                <Label Text="Email: "/>
+                <Entry Text="{Binding Email}" FontSize="Small" Keyboard="Email"></Entry>
+                
+                <Picker Title="Country: "
+                ItemsSource="{Binding Countries}"
+                ItemDisplayBinding="{Binding Name}"
+                SelectedItem="{Binding SelectedCountry}" 
+                SelectedIndexChanged="Countries_SelectedIndexChanged"/>
+
+                <Picker Title="City: "
+                ItemsSource="{Binding Cities}"
+                ItemDisplayBinding="{Binding Name}"
+                SelectedItem="{Binding SelectedCity}" />
+
+                <Picker Title="Gender: " x:Name="Gender" HorizontalOptions="FillAndExpand" SelectedItem="{Binding Gender}">
+                    <Picker.Items>
+                        <x:String>Other</x:String>
+                        <x:String>Male</x:String>
+                        <x:String>Female</x:String>
+                    </Picker.Items>
+                </Picker>
+
+                <Label Text="Birth date"></Label>
+                <DatePicker Date="{Binding BirthDate}"></DatePicker>
+                <Button x:Name="saveButton" Text="Save" 
+                             HeightRequest="30" Clicked="saveButton_Clicked"></Button>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+
+
+</ContentPage>

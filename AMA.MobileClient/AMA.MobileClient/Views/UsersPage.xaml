@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:AMA.MobileClient.ViewModels"
+             mc:Ignorable="d"
+             x:Class="AMA.MobileClient.Views.UsersPage">
+
+    <ContentPage.BindingContext>
+        <vm:UsersViewModel/>
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        <StackLayout Padding="5">
+            <Label>Filter by Username</Label>
+            <Entry x:Name="UserName"></Entry>
+            <Button Clicked="FilterButton_Clicked" Text="Filter"></Button>
+            <ListView ItemsSource="{Binding UsersList}"
+                      ItemSelected="UsersItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="5" StyleClass="Content">
+                                <Label Text="{Binding UserName}" />
+                                <Label Text="{Binding Email}" />
+                                <Label Text="{Binding BirthDate, StringFormat='Born on: \{0:dd MMM, yyyy}'}" HorizontalOptions="End"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+
+</ContentPage>

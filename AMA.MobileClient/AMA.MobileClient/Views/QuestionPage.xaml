@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="AMA.MobileClient.Views.QuestionPage">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Back" Clicked="Cancel_Clicked"/>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="5">
+                <Label Text="{Binding Question.Title}"
+                       HorizontalOptions="CenterAndExpand" 
+                       FontSize="Large"/>
+
+                <Label Text="Body:" FontSize="Medium" />
+                <Label Text="{Binding Question.Body}" d:Text="Item description" />
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.5*"/>
+                        <ColumnDefinition Width="0.5*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <StackLayout Grid.Column="0" Grid.Row="0">
+                        <Label Text="{Binding SubCategoryResponse.Category.Name, StringFormat='Category: \{0}'}"
+                               FontSize="Small" HorizontalOptions="Start"/>
+                        <Label Text="{Binding SubCategoryResponse.Name, StringFormat='Sub-category: \{0}'}"
+                               FontSize="Small" HorizontalOptions="Start"/>
+                    </StackLayout>
+                    <StackLayout Grid.Column="1" Grid.Row="0">
+                        <Label Text="{Binding Question.User.UserName, StringFormat='Added by: \{0}'}"
+                               FontSize="Small" HorizontalOptions="End"/>
+                        <Label Text="{Binding Question.CreatedDate, StringFormat='Added on: \{0:dd MMM, yyyy}'}"
+                               FontSize="Small" HorizontalOptions="End"/>
+                    </StackLayout>
+                    
+                    <StackLayout Grid.ColumnSpan="2" Grid.Row="2">
+                        <Label Text="Answer:"></Label>
+                        <Entry x:Name="Answer"></Entry>
+                        <Button x:Name="answerButton" Text="Answer" 
+                                         HeightRequest="30" Clicked="answerButton_Clicked"></Button>
+                    </StackLayout>
+                    <StackLayout Grid.ColumnSpan="2" Grid.Row="3">
+                        <!--Comments-->
+                        <Label Text="Comments" FontSize="14" />
+                        <StackLayout>
+                            <ListView x:Name="AnswersList" ItemsSource="{Binding Answers}">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <StackLayout Padding="10">
+                                                <StackLayout Orientation="Vertical">
+                                                    <Label Text="{Binding User.UserName}" 
+                                                           FontSize="14" />
+                                                    <Label Text="{Binding Text}" 
+                                                           FontSize="14" />
+                                                    <Label Text="Correct" IsVisible="{Binding Accepted}" BackgroundColor="Green" 
+                                                           FontSize="14" />
+                                                </StackLayout>
+                                                <StackLayout Grid.ColumnSpan="2" Grid.Row="1" Orientation="Horizontal" HorizontalOptions="Center">
+                                                    <Button x:Name="likeButton" Text="{Binding PositiveVotings, StringFormat='\{0} +'}" 
+                                                             HeightRequest="30"
+                                                             Clicked="likeButton_Clicked"></Button>
+                                                    <Button x:Name="dislikeButton" Text="{Binding NegativeVotings, StringFormat='- \{0}'}"
+                                                             HeightRequest="30"
+                                                             Clicked="dislikeButton_Clicked"></Button>
+                                                    <StackLayout Orientation="Vertical" IsVisible="{Binding IsAuthorOfQuestion}">
+                                                        <Button x:Name="markAsCorrect" Text="Mark as correct" IsVisible="{Binding MarkCorrectVisible}" 
+                                                                 HeightRequest="30"
+                                                                 Clicked="markCorrectButton_Clicked"></Button>
+                                                        <Button x:Name="markAsIncorecct" Text="Mark as incorrect" IsVisible="{Binding MarkIncorrectVisible}" 
+                                                                 HeightRequest="30"
+                                                                 Clicked="markCorrectButton_Clicked"></Button>
+                                                    </StackLayout>
+                                                    <Button x:Name="deleteAnswer" Text="Delete" IsVisible="{Binding IsAuthorOfAnswer}"
+                                                             HeightRequest="30"
+                                                             Clicked="deleteButton_Clicked"></Button>
+                                                </StackLayout>
+                                            </StackLayout>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </StackLayout>
+                    </StackLayout>
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

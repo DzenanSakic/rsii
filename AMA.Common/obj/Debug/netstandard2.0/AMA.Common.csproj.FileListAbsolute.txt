@@ -1,0 +1,8 @@
+C:\Users\Dzenan\source\repos\AMA.Api\AMA.Common\bin\Debug\netstandard2.0\AMA.Common.deps.json
+C:\Users\Dzenan\source\repos\AMA.Api\AMA.Common\bin\Debug\netstandard2.0\AMA.Common.dll
+C:\Users\Dzenan\source\repos\AMA.Api\AMA.Common\bin\Debug\netstandard2.0\AMA.Common.pdb
+C:\Users\Dzenan\source\repos\AMA.Api\AMA.Common\obj\Debug\netstandard2.0\AMA.Common.csprojAssemblyReference.cache
+C:\Users\Dzenan\source\repos\AMA.Api\AMA.Common\obj\Debug\netstandard2.0\AMA.Common.AssemblyInfoInputs.cache
+C:\Users\Dzenan\source\repos\AMA.Api\AMA.Common\obj\Debug\netstandard2.0\AMA.Common.AssemblyInfo.cs
+C:\Users\Dzenan\source\repos\AMA.Api\AMA.Common\obj\Debug\netstandard2.0\AMA.Common.dll
+C:\Users\Dzenan\source\repos\AMA.Api\AMA.Common\obj\Debug\netstandard2.0\AMA.Common.pdb

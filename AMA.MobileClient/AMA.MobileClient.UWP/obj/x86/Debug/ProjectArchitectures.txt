@@ -1,0 +1,1 @@
+C:\Users\Dzenan\source\repos\AMA.Api\AMA.MobileClient\AMA.MobileClient.UWP\AMA.MobileClient.UWP.csproj;x86

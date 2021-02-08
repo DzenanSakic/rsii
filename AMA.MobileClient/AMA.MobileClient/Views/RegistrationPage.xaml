@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:AMA.MobileClient.ViewModels"
+             mc:Ignorable="d"
+             x:Class="AMA.MobileClient.Views.RegistrationPage">
+
+    <ContentPage.BindingContext>
+        <vm:RegisterViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout Padding="7" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+            <Label Text="User name"></Label>
+            <Entry Text="{Binding UserName}"></Entry>
+
+            <Label Text="Email"></Label>
+            <Entry Text="{Binding Email}"></Entry>
+
+            <Label Text="First name"></Label>
+            <Entry Text="{Binding FirstName}"></Entry>
+
+            <Label Text="Last name"></Label>
+            <Entry Text="{Binding LastName}"></Entry>
+
+            <Label Text="Password"></Label>
+            <Entry Text="{Binding Password}" IsPassword="True"></Entry>
+
+            <Label Text="Confirm Password"></Label>
+            <Entry Text="{Binding ConfirmPassword}" IsPassword="True"></Entry>
+
+            <Picker Title="Country: "
+                ItemsSource="{Binding Countries}"
+                ItemDisplayBinding="{Binding Name}"
+                SelectedItem="{Binding SelectedCountry}" 
+                SelectedIndexChanged="Countries_SelectedIndexChanged"/>
+
+            <Picker Title="City: "
+                ItemsSource="{Binding Cities}"
+                ItemDisplayBinding="{Binding Name}"
+                SelectedItem="{Binding SelectedCity}" />
+
+            <Picker Title="Gender: " x:Name="Gender" HorizontalOptions="FillAndExpand" SelectedItem="{Binding Gender}">
+                <Picker.Items>
+                    <x:String>Other</x:String>
+                    <x:String>Male</x:String>
+                    <x:String>Female</x:String>
+                </Picker.Items>
+            </Picker>
+
+            <Label Text="Birth date"></Label>
+            <DatePicker Date="{Binding BirthDate}"></DatePicker>
+
+            <Button Command="{Binding Submit}" Text="Register"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

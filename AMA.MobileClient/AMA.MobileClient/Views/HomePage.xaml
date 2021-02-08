@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="AMA.MobileClient.Views.HomePage"
+             xmlns:vm="clr-namespace:AMA.MobileClient.ViewModels">
+    
+    <ContentPage.BindingContext>
+        <vm:HomePageViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout Padding="5">
+            <Button x:Name="btnAdd" Clicked="AddButton_Clicked" Text="Ask the question" HorizontalOptions="End"></Button>
+
+            <Label>Filter by Title</Label>
+            <Entry x:Name="Title"></Entry>
+
+            <Picker Title="Filter by category: " 
+               ItemsSource="{Binding Categories}"
+                ItemDisplayBinding="{Binding Name}"
+                SelectedItem="{Binding SelectedCategory}" 
+                SelectedIndexChanged="Category_SelectedIndexChanged" />
+
+            <Picker Title="Filter by sub-category: "
+                ItemsSource="{Binding SubCategories}"
+                ItemDisplayBinding="{Binding Name}"
+                SelectedItem="{Binding SelectedSubCategory}" />
+
+            <Button Clicked="FilterButton_Clicked" Text="Filter"></Button>
+            <ListView ItemsSource="{Binding Questions}"
+                     ItemSelected="PostItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="5" StyleClass="Content">
+                                <Label Text="{Binding Question.Title, StringFormat='Title: \{0}'}" />
+                                <Label Text="{Binding SubCategoryResponse.Name, StringFormat='Sub-category: \{0}'}"/>
+                                <Label Text="{Binding AnswerCount, StringFormat='Number of asnwers: \{0}'}"/>
+                                <Label Text="{Binding HasCorrectAnswer, StringFormat='Answered: \{0}'}"/>
+                                <Label Text="{Binding Question.User.UserName, StringFormat='Asked by: \{0}'}" HorizontalOptions="End"/>
+                                <Label Text="{Binding Question.CreatedTime, StringFormat='Added on: \{0:dd MMM, yyyy}'}" HorizontalOptions="End"/>
+                                <Button x:Name="deleteQuestion" Text="Delete" IsVisible="{Binding IsAuthorOfQuestion}"
+                                                             HeightRequest="30"
+                                                             Clicked="deleteButton_Clicked"></Button>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+
+</ContentPage>
