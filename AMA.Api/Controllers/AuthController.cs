@@ -47,6 +47,11 @@ namespace AMA.Api.Controllers
             var user = _repositoryUser.TryFind(request.UserName);
             var role = _userService.GetUserRole(request.UserName);
 
+            if(user.Status == Common.Enumerations.UserStatus.Blocked)
+            {
+                return BadRequest("User is blocked");
+            }
+
             var claims = new[]
             {
             new Claim("Id", user.ID.ToString()),

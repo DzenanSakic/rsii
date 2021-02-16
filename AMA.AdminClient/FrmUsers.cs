@@ -31,7 +31,8 @@ namespace AMA.AdminClient
                     BirthDate = x.BirthDate.ToShortDateString(),
                     Mail = x.Mail,
                     City = x.City.Name,
-                    Gender = x.Gender
+                    Gender = x.Gender,
+                    Status = x.Status
                 }).ToList();
 
             await LoadUsers(data);
@@ -157,7 +158,44 @@ namespace AMA.AdminClient
                     BirthDate = x.BirthDate.ToShortDateString(),
                     Mail = x.Mail,
                     City = x.City.Name,
-                    Gender = x.Gender
+                    Gender = x.Gender,
+                    Status = x.Status
+                }).ToList();
+
+            await LoadUsers(data);
+        }
+
+        private async void button3_Click(object sender, EventArgs e)
+        {
+            var index = dataGridView1.SelectedCells[0].RowIndex;
+            var user = dataGridView1.Rows[index].DataBoundItem as UsersDataGrid;
+
+            if (user.Id == ApiService.UserId)
+            {
+                MessageBox.Show("You can not block yourself!");
+                return;
+            }
+
+            if (user.Role == "Admin")
+            {
+                MessageBox.Show("You can not block admin!");
+                return;
+            }
+
+            _ = await _usersService.Post<object>(null, $"user/{user.Id}/changestate");
+
+            var data = (await _usersService.Get<List<UsersResponse>>(null, "find"))
+                .Select(x => new UsersDataGrid
+                {
+                    Id = x.Id,
+                    UserName = x.UserName,
+                    FirstName = x.FirstName,
+                    LastName = x.LastName,
+                    BirthDate = x.BirthDate.ToShortDateString(),
+                    Mail = x.Mail,
+                    City = x.City.Name,
+                    Gender = x.Gender,
+                    Status = x.Status
                 }).ToList();
 
             await LoadUsers(data);

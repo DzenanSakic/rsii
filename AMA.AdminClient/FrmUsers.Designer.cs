@@ -44,6 +44,7 @@ namespace AMA.AdminClient
             this.txtLastname = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -94,7 +95,7 @@ namespace AMA.AdminClient
             // 
             // btnSendMsg
             // 
-            this.btnSendMsg.Location = new System.Drawing.Point(659, 16);
+            this.btnSendMsg.Location = new System.Drawing.Point(557, 16);
             this.btnSendMsg.Name = "btnSendMsg";
             this.btnSendMsg.Size = new System.Drawing.Size(107, 23);
             this.btnSendMsg.TabIndex = 4;
@@ -180,11 +181,22 @@ namespace AMA.AdminClient
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(670, 16);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(96, 23);
+            this.button3.TabIndex = 14;
+            this.button3.Text = "Block/Unblock";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // FrmUsers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(940, 563);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.txtLastname);
             this.Controls.Add(this.label5);
@@ -228,5 +240,6 @@ namespace AMA.AdminClient
         private TextBox txtLastname;
         private Label label5;
         private Button btnSearch;
+        private Button button3;
     }
 }

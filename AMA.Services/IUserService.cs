@@ -13,5 +13,6 @@ namespace AMA.Services
         void BanUser(BanUserRequest request);
         void SendMessage(SendMessageRequest request, int fromUserId);
         void MakePayment(MakePaymentRequest request, int fromUserId);
+        void ChangeUserState(int userId);
     }
 }

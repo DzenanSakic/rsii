@@ -155,6 +155,14 @@ namespace AMA.Api.Controllers
             return Ok(_repositoryPayment.FindByUser(userId));
         }
 
+        [HttpPost("user/{userId}/changestate")]
+        public IActionResult ChangeState(int userId)
+        {
+
+            _userService.ChangeUserState(userId);
+            return Ok();
+        }
+
         [HttpPost("user/pay")]
         public IActionResult UpdatePackage([FromBody]PaymentRequest payment)
         {

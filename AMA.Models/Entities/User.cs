@@ -29,5 +29,7 @@ namespace AMA.Models.Entities
         [DataMember]
         public string Username { get; set; }
         public string PasswordHash { get; set; }
+        [DataMember]
+        public UserStatus Status { get; set; }
     }
 }

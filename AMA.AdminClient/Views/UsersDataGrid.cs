@@ -18,5 +18,6 @@ namespace AMA.AdminClient.Views
         public string Mail { get; set; }
         public string City { get; set; }
         public string Role { get; set; }
+        public UserStatus Status { get; set; }
     }
 }

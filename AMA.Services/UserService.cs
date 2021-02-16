@@ -60,7 +60,8 @@ namespace AMA.Services
                 Gender = request.Gender,
                 LastName = request.LastName,
                 Mail = request.Mail,
-                PasswordHash = _passwordHasher.HashPassword(request.Password)
+                PasswordHash = _passwordHasher.HashPassword(request.Password),
+                Status = Common.Enumerations.UserStatus.Active
             };
 
             _repositoryUser.Insert(user);
@@ -137,6 +138,14 @@ namespace AMA.Services
             };
              
             _repositoryPayment.Insert(payment);
+        }
+
+        public void ChangeUserState(int userId)
+        {
+            var user = _repositoryUser.TryFind(userId);
+            user.Status = user.Status == Common.Enumerations.UserStatus.Active ? Common.Enumerations.UserStatus.Blocked : Common.Enumerations.UserStatus.Active;
+
+            _repositoryUser.Update(user);
         }
     }
 }

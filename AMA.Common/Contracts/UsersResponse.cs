@@ -15,5 +15,6 @@ namespace AMA.Common.Contracts
         public Gender Gender { get; set; }
         public string Mail { get; set; }
         public CityResponse City { get; set; }
+        public UserStatus Status { get; set; }
     }
 }
