@@ -1052,6 +1052,18 @@
           }
         }
       },
+      "Stripe.net/35.6.0": {
+        "dependencies": {
+          "Newtonsoft.Json": "12.0.2",
+          "System.Configuration.ConfigurationManager": "4.7.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Stripe.net.dll": {
+            "assemblyVersion": "35.6.0.0",
+            "fileVersion": "35.6.0.0"
+          }
+        }
+      },
       "Swashbuckle.AspNetCore/5.6.3": {
         "dependencies": {
           "Microsoft.Extensions.ApiDescription.Server": "3.0.0",
@@ -3034,6 +3046,13 @@
       "sha512": "sha512-VB5cn/7OzUfzdnC8tqAIMQciVLiq2epm2NrAm1E9OjNRyG4lVhfR61SMcLizejzQP8R8Uf/0l5qOIbUEi+RdEg==",
       "path": "runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl/4.3.0",
       "hashPath": "runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512"
+    },
+    "Stripe.net/35.6.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-cUGZnIh7o1nwsL/W9GLPjL5S7438ylcq6/Cp1WanRNc8to3syUoCmTGIG0bIv13VRpMrIuS09DivXwZWBYSqig==",
+      "path": "stripe.net/35.6.0",
+      "hashPath": "stripe.net.35.6.0.nupkg.sha512"
     },
     "Swashbuckle.AspNetCore/5.6.3": {
       "type": "package",

@@ -62,3 +62,6 @@ C:\Users\Dzenan\Desktop\RSIIGit\rsii\AMA.AdminClient\obj\Debug\AMA.AdminClient.c
 C:\Users\Dzenan\Desktop\RSIIGit\rsii\AMA.AdminClient\obj\Debug\AMA.AdminClient.csproj.CopyComplete
 C:\Users\Dzenan\Desktop\RSIIGit\rsii\AMA.AdminClient\obj\Debug\AMA.AdminClient.exe
 C:\Users\Dzenan\Desktop\RSIIGit\rsii\AMA.AdminClient\obj\Debug\AMA.AdminClient.pdb
+C:\Users\Dzenan\Desktop\RSIIGit\rsii\AMA.AdminClient\obj\Debug\AMA.AdminClient.FrmReports.resources
+C:\Users\Dzenan\Desktop\RSIIGit\rsii\AMA.AdminClient\obj\Debug\AMA.AdminClient.FrmUsersActivityReport.resources
+C:\Users\Dzenan\Desktop\RSIIGit\rsii\AMA.AdminClient\obj\Debug\AMA.AdminClient.FrmUsersPerformanceReport.resources

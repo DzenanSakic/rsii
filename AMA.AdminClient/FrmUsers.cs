@@ -82,6 +82,18 @@ namespace AMA.AdminClient
             var index = dataGridView1.SelectedCells[0].RowIndex;
             var user = dataGridView1.Rows[index].DataBoundItem as UsersDataGrid;
 
+            if (user.Id == ApiService.UserId)
+            {
+                MessageBox.Show("You can not ban yourself!");
+                return;
+            }
+
+            if(user.Role == "Admin")
+            {
+                MessageBox.Show("You can not ban admin!");
+                return;
+            }
+
             FrmBans frm = new FrmBans(user.Id, user.UserName);
             frm.Show();
         }

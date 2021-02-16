@@ -31,6 +31,11 @@ namespace AMA.Repositories.Repository.MSSQL
             return _answerContext.Include(a => a.User).Where(x => x.QuestionId == questionId).ToList();
         }
 
+        public IEnumerable<Answer> FindAllByUser(int userId)
+        {
+            return _answerContext.Where(x => x.UserId == userId).ToList();
+        }
+
         public Answer Insert(Answer answer)
         {
             _answerContext.Add(answer);

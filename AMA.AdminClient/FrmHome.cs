@@ -399,5 +399,23 @@ namespace AMA.AdminClient
             home.Show();
             Hide();
         }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Close();
+        }
+
+        private void linkReports_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FrmReports frmReports = new FrmReports();
+            frmReports.Show();
+            Hide();
+            frmReports.FormClosing += FrmReports_Closing;
+        }
+
+        private void FrmReports_Closing(object sender, FormClosingEventArgs e)
+        {
+            Show();
+        }
     }
 }

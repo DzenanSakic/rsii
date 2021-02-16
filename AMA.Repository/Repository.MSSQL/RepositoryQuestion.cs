@@ -68,5 +68,10 @@ namespace AMA.Repositories.Repository.MSSQL
 
             return questions.Include(x => x.User).ToList();
         }
+
+        public IEnumerable<Question> FindByUser(int userId)
+        {
+            return _questionContext.Where(x => x.UserId == userId).ToList();
+        }
     }
 }

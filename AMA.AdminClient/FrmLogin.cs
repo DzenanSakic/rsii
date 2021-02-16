@@ -41,6 +41,7 @@ namespace AMA.AdminClient
                 if (!Regex.IsMatch(txtUsername.Text, "^[a-zA-Z0-9]+$"))
                 {
                     MessageBox.Show("Username can only contain letters and numbers!");
+                    btnLogin.Enabled = true;
                     return;
                 }
 

@@ -11,5 +11,7 @@ namespace AMA.Repositories.Interfaces
         void Insert(Question question);
         void Delete(Question question);
         IEnumerable<Question> Find(FindQuestionsRequest request);
+        IEnumerable<Question> FindByUser(int userId);
+        
     }
 }

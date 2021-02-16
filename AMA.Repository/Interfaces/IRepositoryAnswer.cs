@@ -8,6 +8,7 @@ namespace AMA.Repositories.Interfaces
         Answer Insert(Answer answer);
         void Delete(Answer answer);
         IEnumerable<Answer> FindAll(int questionId);
+        IEnumerable<Answer> FindAllByUser(int userId);
         Answer Find(int id);
         Answer Update(Answer answer);
     }
