@@ -28,8 +28,10 @@
                            FontSize="Small" HorizontalOptions="Start"/>
                 </StackLayout>
                 <StackLayout HorizontalOptions="CenterAndExpand">
-                    <Button x:Name="followButton" Text="Follow" 
+                    <Button x:Name="followButton" Text="Follow" IsVisible="{Binding CanFollowUser}" 
                                      HeightRequest="35" Clicked="followButton_Clicked"></Button>
+                    <Button x:Name="unfollowButton" Text="Unfollow" IsVisible="{Binding IsFollowedByCurrentUser}"
+                                     HeightRequest="35" Clicked="unfollowButton_Clicked"></Button>
                     <Button x:Name="messageButton" Text="Message" 
                                     HeightRequest="35" Clicked="messageButton_Clicked"></Button>
                     <Button x:Name="payButton" Text="Pay" 

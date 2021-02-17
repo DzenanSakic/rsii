@@ -14,5 +14,7 @@ namespace AMA.Services
         void SendMessage(SendMessageRequest request, int fromUserId);
         void MakePayment(MakePaymentRequest request, int fromUserId);
         void ChangeUserState(int userId);
+        void FollowUser(InsertUserFollowRequest request);
+        void RemoveUserFollow(DeleteUserFollowRequest request);
     }
 }

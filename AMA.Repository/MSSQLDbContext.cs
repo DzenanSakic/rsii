@@ -15,6 +15,7 @@ namespace AMA.Repositories
             modelBuilder.Entity<AnswerVoting>().HasKey(vf => new { vf.UserId, vf.AnswerId });
             modelBuilder.Entity<UserSubCategory>().HasKey(vf => new { vf.UserId, vf.SubCategoryId });
             modelBuilder.Entity<QuestionSubCategory>().HasKey(vf => new { vf.QuestionId, vf.SubCategoryId });
+            modelBuilder.Entity<UserFollow>().HasKey(vf => new { vf.UserFollowingId, vf.FollowedUserId });
         }
 
         public DbSet<User> Users { get; set; }
@@ -32,5 +33,6 @@ namespace AMA.Repositories
         public DbSet<QuestionSubCategory> QuestionsSubCategories { get; set; }
         public DbSet<UserRole> UsersRole { get; set; }
         public DbSet<Ban> Bans { get; set; }
+        public DbSet<UserFollow> UserFollows { get; set; }
     }
 }

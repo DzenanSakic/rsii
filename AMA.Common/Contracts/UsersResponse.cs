@@ -16,5 +16,7 @@ namespace AMA.Common.Contracts
         public string Mail { get; set; }
         public CityResponse City { get; set; }
         public UserStatus Status { get; set; }
+        public bool IsFollowedByCurrentUser { get; set; }
+        public bool CanFollowUser { get; set; }
     }
 }

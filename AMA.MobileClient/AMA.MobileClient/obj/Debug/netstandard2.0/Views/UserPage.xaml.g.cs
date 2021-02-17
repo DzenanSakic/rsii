@@ -20,6 +20,9 @@ namespace AMA.MobileClient.Views {
         private global::Xamarin.Forms.Button followButton;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
+        private global::Xamarin.Forms.Button unfollowButton;
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private global::Xamarin.Forms.Button messageButton;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
@@ -29,8 +32,27 @@ namespace AMA.MobileClient.Views {
         private void InitializeComponent() {
             global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(UserPage));
             followButton = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Button>(this, "followButton");
+            unfollowButton = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Button>(this, "unfollowButton");
             messageButton = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Button>(this, "messageButton");
             payButton = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Button>(this, "payButton");
+        }
+
+        private void Refresh(bool canFollow)
+        {
+            followButton = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Button>(this, "followButton");
+            unfollowButton = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Button>(this, "unfollowButton");
+
+            if (canFollow)
+            {
+                followButton.IsVisible = true;
+                unfollowButton.IsVisible = false;
+            }
+            else
+            {
+                followButton.IsVisible = false;
+                unfollowButton.IsVisible = true;
+            }
+
         }
     }
 }

@@ -14,13 +14,15 @@ namespace AMA.Services
         private readonly IRepositoryBan _repositoryBan;
         private readonly IRepositoryMessage _repositoryMessage;
         private readonly IRepositoryPayment _repositoryPayment;
+        private readonly IRepositoryUserFollow _repositoryUserFollow;
         private readonly PasswordHasher _passwordHasher;
         public UserService(IRepositoryUser repositoryUser,
             IRepositoryUserRole repositoryUserRole,
             IRepositoryBan repositoryBan,
             IRepositoryMessage repositoryMessage,
             PasswordHasher passwordHasher,
-            IRepositoryPayment repositoryPayment)
+            IRepositoryPayment repositoryPayment,
+            IRepositoryUserFollow repositoryUserFollow)
         {
             _repositoryUser = repositoryUser;
             _repositoryUserRole = repositoryUserRole;
@@ -28,6 +30,7 @@ namespace AMA.Services
             _repositoryMessage = repositoryMessage;
             _passwordHasher = passwordHasher;
             _repositoryPayment = repositoryPayment;
+            _repositoryUserFollow = repositoryUserFollow;
         }
         public bool IsValidUserCredentials(string username, string password)
         {
@@ -146,6 +149,22 @@ namespace AMA.Services
             user.Status = user.Status == Common.Enumerations.UserStatus.Active ? Common.Enumerations.UserStatus.Blocked : Common.Enumerations.UserStatus.Active;
 
             _repositoryUser.Update(user);
+        }
+
+        public void FollowUser(InsertUserFollowRequest request)
+        {
+            var exist = _repositoryUserFollow.TryFind(request.UserFolloingId, request.FollowingUserId);
+            if (exist != null)
+                return;
+
+            _repositoryUserFollow.Insert(new UserFollow { FollowedUserId = request.FollowingUserId, UserFollowingId = request.UserFolloingId });
+        }
+
+        public void RemoveUserFollow(DeleteUserFollowRequest request)
+        {
+            var exist = _repositoryUserFollow.TryFind(request.UserFollowingId, request.FollowedUserId);
+            if (exist != null)
+                _repositoryUserFollow.Remove(exist);
         }
     }
 }

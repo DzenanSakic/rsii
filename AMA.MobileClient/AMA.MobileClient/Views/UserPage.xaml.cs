@@ -15,7 +15,7 @@ namespace AMA.MobileClient.Views
     {
         private readonly UsersResponse _user;
         private ApiService _userService = new ApiService("users");
-        public UserPage(Common.Contracts.UsersResponse user)
+        public UserPage(UsersResponse user)
         {
             InitializeComponent();
             BindingContext = _user = user;
@@ -23,13 +23,32 @@ namespace AMA.MobileClient.Views
 
         protected override async void OnAppearing()
         {
-            base.OnAppearing();
-
+           base.OnAppearing();
         }
         private async void followButton_Clicked(object sender, EventArgs e)
         {
-           
+            var request = new
+            {
+                FollowingUserId = _user.Id,
+                UserFolloingId = ApiService.UserId
+            };
+
+            _ = await _userService.Post<object>(request, "user/follow");
+            Refresh(false);
         }
+
+        private async void unfollowButton_Clicked(object sender, EventArgs e)
+        {
+            var request = new
+            {
+                UserFollowingId = ApiService.UserId,
+                FollowedUserId = _user.Id
+            };
+
+            _ = await _userService.Delete<object>(request, "user/follow");
+            Refresh(true);
+        }
+
 
         private async void messageButton_Clicked(object sender, EventArgs e)
         {

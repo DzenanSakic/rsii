@@ -326,6 +326,21 @@ namespace AMA.Repositories.Migrations
                     b.ToTable("Users");
                 });
 
+            modelBuilder.Entity("AMA.Models.Entities.UserFollow", b =>
+                {
+                    b.Property<int>("UserFollowingId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("FollowedUserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("UserFollowingId", "FollowedUserId");
+
+                    b.HasIndex("FollowedUserId");
+
+                    b.ToTable("UserFollows");
+                });
+
             modelBuilder.Entity("AMA.Models.Entities.UserRole", b =>
                 {
                     b.Property<int>("ID")
@@ -526,6 +541,25 @@ namespace AMA.Repositories.Migrations
                         .IsRequired();
 
                     b.Navigation("City");
+                });
+
+            modelBuilder.Entity("AMA.Models.Entities.UserFollow", b =>
+                {
+                    b.HasOne("AMA.Models.Entities.User", "FollowedUser")
+                        .WithMany()
+                        .HasForeignKey("FollowedUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("AMA.Models.Entities.User", "UserFollowing")
+                        .WithMany()
+                        .HasForeignKey("UserFollowingId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("FollowedUser");
+
+                    b.Navigation("UserFollowing");
                 });
 
             modelBuilder.Entity("AMA.Models.Entities.UserRole", b =>

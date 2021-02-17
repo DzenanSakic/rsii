@@ -21,12 +21,14 @@ namespace AMA.Api.Controllers
         private readonly IRepositoryPayment _repositoryPayment;
         private readonly IRepositoryUserRole _repositoryUserRole;
         private readonly IRepositoryBan _repositoryBan;
+        private readonly IRepositoryUserFollow _repositoryUserFollow;
         public UsersController(IUserService userService, 
             IRepositoryUser repositoryUser,
             IRepositoryMessage message,
             IRepositoryPayment repositoryPayment, 
             IRepositoryUserRole repositoryUserRole,
-            IRepositoryBan repositoryBan
+            IRepositoryBan repositoryBan,
+            IRepositoryUserFollow repositoryUserFollow
             )
         {
             _userService = userService;
@@ -35,6 +37,7 @@ namespace AMA.Api.Controllers
             _repositoryPayment = repositoryPayment;
             _repositoryUserRole = repositoryUserRole;
             _repositoryBan = repositoryBan;
+            _repositoryUserFollow = repositoryUserFollow;
         }
 
         [HttpPost("user/register")]
@@ -158,7 +161,6 @@ namespace AMA.Api.Controllers
         [HttpPost("user/{userId}/changestate")]
         public IActionResult ChangeState(int userId)
         {
-
             _userService.ChangeUserState(userId);
             return Ok();
         }
@@ -206,6 +208,33 @@ namespace AMA.Api.Controllers
             {
                 throw ex;
             }
+        }
+
+        [HttpPost("user/follow")]
+        public IActionResult FollowUser([FromBody] InsertUserFollowRequest request)
+        {
+            if(!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+
+            _userService.FollowUser(request);
+            return Ok();
+        }
+
+        [HttpGet("user/followings")]
+        public IActionResult GetUserFollowings()
+        {
+            var userId = int.Parse(User.Claims.Where(x => x.Type == "Id").FirstOrDefault().Value);
+
+            return Ok(_repositoryUserFollow.TryFindAll(userId));
+        }
+
+        [HttpDelete("user/follow")]
+        public IActionResult DeleteUserFollow([FromQuery] DeleteUserFollowRequest request)
+        {
+            _userService.RemoveUserFollow(request);
+            return Ok();
         }
     }
 }

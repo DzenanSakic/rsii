@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Text;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -29,6 +29,9 @@ namespace AMA.MobileClient.ViewModels
 
                 foreach (var item in users)
                 {
+                    var followings = await _usersService.Get<List<UserFollowResponse>>(null, "user/followings");
+                    item.IsFollowedByCurrentUser = followings.Any(x => x.FollowedUserId == item.Id);
+                    item.CanFollowUser = followings.Where(x => x.FollowedUserId == item.Id).Count() > 0 ? false : true;
                     UsersList.Add(item);
                 }
             }
