@@ -61,10 +61,10 @@ namespace AMA.AdminClient
         {
             try
             {
-                if (string.IsNullOrEmpty(txtUserName.Text)
-                || string.IsNullOrEmpty(txtFirstName.Text)
-                || string.IsNullOrEmpty(txtLastName.Text)
-                || string.IsNullOrEmpty(txtMail.Text))
+                if (string.IsNullOrEmpty(txtUserName.Text) || string.IsNullOrWhiteSpace(txtUserName.Text)
+                || string.IsNullOrEmpty(txtFirstName.Text) || string.IsNullOrWhiteSpace(txtFirstName.Text)
+                || string.IsNullOrEmpty(txtLastName.Text) || string.IsNullOrWhiteSpace(txtLastName.Text)
+                || string.IsNullOrEmpty(txtMail.Text) || string.IsNullOrWhiteSpace(txtMail.Text))
                 {
                     MessageBox.Show("First name, Last name, User name, Mail can not be empty!");
                     return;

@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AMA.AdminClient
@@ -23,7 +16,7 @@ namespace AMA.AdminClient
         {
             try
             {
-                if (string.IsNullOrEmpty(txtCategoryName.Text))
+                if (string.IsNullOrEmpty(txtCategoryName.Text) || string.IsNullOrWhiteSpace(txtCategoryName.Text))
                 {
                     MessageBox.Show("Name can not be empty!");
                     return;
@@ -49,22 +42,5 @@ namespace AMA.AdminClient
                 MessageBox.Show(ex.Message);
             }
         }
-
-        //private void txtCategoryName_Validating(object sender, CancelEventArgs e)
-        //{
-        //    if(string.IsNullOrEmpty(txtCategoryName.Text))
-        //    {
-        //        e.Cancel = true;
-        //        MessageBox.Show("Name can not be empty!");
-        //        return;
-        //    }
-
-        //    if (!Regex.IsMatch(txtCategoryName.Text, "^[a-zA-Z ]$"))
-        //    {
-        //        e.Cancel = true;
-        //        MessageBox.Show("Name can only contain letters!");
-        //        return;
-        //    }
-        //}
     }
 }

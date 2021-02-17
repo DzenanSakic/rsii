@@ -174,10 +174,10 @@ namespace AMA.MobileClient.ViewModels
         {
             try
             {
-                if (string.IsNullOrEmpty(FirstName)
-                || string.IsNullOrEmpty(LastName)
-                || string.IsNullOrEmpty(Email)
-                || string.IsNullOrEmpty(UserName))
+                if (string.IsNullOrEmpty(FirstName) || string.IsNullOrWhiteSpace(FirstName)
+                || string.IsNullOrEmpty(LastName) || string.IsNullOrWhiteSpace(LastName)
+                || string.IsNullOrEmpty(Email) || string.IsNullOrWhiteSpace(Email)
+                || string.IsNullOrEmpty(UserName) || string.IsNullOrWhiteSpace(UserName))
                 {
                     throw new Exception("Username, First name, Last name, User name, Mail can not be empty!");
                 }

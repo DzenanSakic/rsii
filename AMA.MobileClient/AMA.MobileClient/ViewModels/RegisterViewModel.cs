@@ -169,13 +169,13 @@ namespace AMA.MobileClient.ViewModels
         {
             try
             {
-                if (string.IsNullOrEmpty(FirstName)
-                       || string.IsNullOrEmpty(LastName)
+                if (string.IsNullOrEmpty(FirstName) || string.IsNullOrWhiteSpace(FirstName)
+                       || string.IsNullOrEmpty(LastName) || string.IsNullOrWhiteSpace(LastName)
                        || string.IsNullOrEmpty(Gender)
-                       || string.IsNullOrEmpty(Email)
-                       || string.IsNullOrEmpty(UserName)
-                       || string.IsNullOrEmpty(Password)
-                       || string.IsNullOrEmpty(ConfirmPassword))
+                       || string.IsNullOrEmpty(Email) || string.IsNullOrWhiteSpace(Email)
+                       || string.IsNullOrEmpty(UserName) || string.IsNullOrWhiteSpace(UserName)
+                       || string.IsNullOrEmpty(Password) || string.IsNullOrWhiteSpace(Password)
+                       || string.IsNullOrEmpty(ConfirmPassword) || string.IsNullOrWhiteSpace(ConfirmPassword))
                 {
                     throw new Exception("All fields are required!");
                 }

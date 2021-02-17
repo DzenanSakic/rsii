@@ -1,5 +1,5 @@
 ﻿using AMA.MobileClient.ViewModels;
-
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -16,10 +16,16 @@ namespace AMA.MobileClient.Views
             BindingContext = model = new PaymentViewModel(_user);
         }
 
-        private async void Button_Clicked(object sender, System.EventArgs e)
+        private async void Button_Clicked(object sender, EventArgs e)
         {
-            await model.Pay();
+            var result = await model.Pay();
 
+            if(result)
+                await Navigation.PopModalAsync();
+        }
+
+        private async void Cancel_Clicked(object sender, EventArgs e)
+        {
             await Navigation.PopModalAsync();
         }
     }

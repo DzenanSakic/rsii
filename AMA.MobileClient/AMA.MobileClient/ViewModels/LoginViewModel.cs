@@ -1,8 +1,6 @@
 ﻿using AMA.Common.Contracts;
 using AMA.MobileClient.Views;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -11,7 +9,6 @@ namespace AMA.MobileClient.ViewModels
     public class LoginViewModel : BaseViewModel
     {
         private ApiService _authService = new ApiService("auth");
-        private ApiService _usersService = new ApiService("users");
 
         public LoginViewModel()
         {
@@ -24,6 +21,9 @@ namespace AMA.MobileClient.ViewModels
 
                     try
                     {
+                        if(!string.IsNullOrEmpty(Username) || !string.IsNullOrWhiteSpace(Username)
+                        || !string.IsNullOrEmpty(Password) || !string.IsNullOrWhiteSpace(Password))
+
                         authentication = await _authService.Post<LoginResponse>(new
                         {
                             username = Username,
@@ -41,24 +41,6 @@ namespace AMA.MobileClient.ViewModels
                         ApiService.Token = authentication.AccessToken;
                         ApiService.Permission = authentication.Role;
                         ApiService.UserId = authentication.Id;
-
-                        //SignalR.HubConnection = new HubConnectionBuilder()
-                        //    .WithUrl($"{ApiService.Url}/notifications", options =>
-                        //    {
-                        //        options.AccessTokenProvider = () => Task.FromResult(ApiService.Token);
-                        //    })
-                        //    .Build();
-
-                        //SignalR.HubConnection.On<string, string>("ReceiveNotification", (userFollowers, creator) =>
-                        //{
-                        //    var followers = JsonConvert.DeserializeObject<IList<int>>(userFollowers);
-
-                        //    if (followers.Any(x => x == ApiService.LoggedInUserId))
-                        //    {
-                        //        Application.Current.MainPage.DisplayAlert("Alert", $"User {creator} added a new post", "OK");
-                        //    }
-
-                        //});
 
                         Application.Current.MainPage = new MainPage();
                     }

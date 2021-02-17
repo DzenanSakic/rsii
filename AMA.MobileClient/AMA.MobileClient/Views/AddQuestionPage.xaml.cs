@@ -37,7 +37,7 @@ namespace AMA.MobileClient.Views
             try
             {
                 if (string.IsNullOrEmpty(Title.Text) || string.IsNullOrWhiteSpace(Title.Text)
-                    || string.IsNullOrEmpty(Title.Text) || string.IsNullOrWhiteSpace(Title.Text)
+                    || string.IsNullOrEmpty(Body.Text) || string.IsNullOrWhiteSpace(Body.Text)
                     || _model.SelectedSubCategory.Id == 0)
                 {
                     await Application.Current.MainPage.DisplayAlert("Error", "Check all fields", "OK");

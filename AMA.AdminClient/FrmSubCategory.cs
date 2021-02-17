@@ -23,7 +23,7 @@ namespace AMA.AdminClient
         {
             try
             {
-                if (string.IsNullOrEmpty(txtSubCategoryName.Text))
+                if (string.IsNullOrEmpty(txtSubCategoryName.Text) || string.IsNullOrWhiteSpace(txtSubCategoryName.Text))
                 {
                     MessageBox.Show("Name can not be empty!");
                     return;

@@ -21,7 +21,7 @@ namespace AMA.AdminClient
 
         private async void btnAnswer_Click(object sender, EventArgs e)
         {
-            if(string.IsNullOrEmpty(richAnswer.Text))
+            if(string.IsNullOrEmpty(richAnswer.Text) || string.IsNullOrWhiteSpace(richAnswer.Text))
             {
                 MessageBox.Show("Replay can not be empty!");
                 return;

@@ -6,12 +6,12 @@
              mc:Ignorable="d"
              x:Class="AMA.MobileClient.Views.PaymentPage">
 
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Back" Clicked="Cancel_Clicked"/>
+    </ContentPage.ToolbarItems>
+    
     <ContentPage.Content>
         <StackLayout Padding="20">
-            <Label Text="To read more posts please subscribe for premium package. The charged fee for package is 10 Euro." 
-                        LineBreakMode="NoWrap" 
-                        Style="{DynamicResource ListItemTextStyle}" 
-                        FontSize="16" />
             <Label Text="Credit card number" 
                         LineBreakMode="NoWrap" 
                         Style="{DynamicResource ListItemTextStyle}" 

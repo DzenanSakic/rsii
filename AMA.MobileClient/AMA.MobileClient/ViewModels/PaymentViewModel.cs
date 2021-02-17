@@ -24,8 +24,18 @@ namespace AMA.MobileClient.ViewModels
             User = _user;
         }
 
-        public async Task Pay()
+        public async Task<bool> Pay()
         {   
+            if(string.IsNullOrEmpty(CreditCardNumber) || string.IsNullOrWhiteSpace(CreditCardNumber)
+                || string.IsNullOrEmpty(CVC) || string.IsNullOrWhiteSpace(CVC)
+                || ExpiryMonth == 0
+                || ExpiryYear == 0
+                || Amount == null)
+            {
+                await Xamarin.Forms.Application.Current.MainPage.DisplayAlert("Error", "Check all fields", "Ok");
+                return false;
+            }
+
             CreateToken();
 
             var request = new
@@ -39,6 +49,7 @@ namespace AMA.MobileClient.ViewModels
             _ = _paymentService.Post<object>(request, null);
 
             await Xamarin.Forms.Application.Current.MainPage.DisplayAlert("Information", "Payment processed. Please navigate back.", "Ok");
+            return true;
         }
 
         void CreateToken()

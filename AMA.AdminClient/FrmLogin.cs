@@ -12,8 +12,6 @@ namespace AMA.AdminClient
         public FrmLogin()
         {
             InitializeComponent();
-            txtUsername.Text = "Alfica";
-            txtPassword.Text = "Alfica123";
         }
 
         private void FrmHome_Closing(object sender, FormClosingEventArgs e)
@@ -31,7 +29,8 @@ namespace AMA.AdminClient
             {
                 btnLogin.Enabled = false;
 
-                if (string.IsNullOrEmpty(txtUsername.Text) || string.IsNullOrEmpty(txtPassword.Text))
+                if (string.IsNullOrEmpty(txtUsername.Text) || string.IsNullOrWhiteSpace(txtUsername.Text)
+                    || string.IsNullOrEmpty(txtPassword.Text) || string.IsNullOrWhiteSpace(txtPassword.Text))
                 {
                     MessageBox.Show("Username and password required!");
                     btnLogin.Enabled = true;
