@@ -34,6 +34,13 @@ namespace AMA.MobileClient.Views
         {
             try
             {
+                if(string.IsNullOrEmpty(_model.Title) || string.IsNullOrEmpty(_model.Body)
+                    || string.IsNullOrWhiteSpace(_model.Title) || string.IsNullOrWhiteSpace(_model.Body))
+                {
+                    await Application.Current.MainPage.DisplayAlert("Error", "All fields are required", "OK");
+                    return;
+                }
+
                 var request = new
                 {
                     ToUserId = _model.User.Id,
@@ -50,7 +57,9 @@ namespace AMA.MobileClient.Views
                         Body = request.Body,
                         Title = request.Title,
                         ToUserId = request.ToUserId,
-                        FromUserId = ApiService.UserId
+                        FromUserId = ApiService.UserId,
+                        AlignLeft = false,
+                        AlignRight = true
                     });
 
                 await Navigation.PopModalAsync();

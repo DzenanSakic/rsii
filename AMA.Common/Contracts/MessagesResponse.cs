@@ -13,5 +13,7 @@ namespace AMA.Common.Contracts
         public int FromUserId { get; set; }
         public UsersResponse ToUser { get; set; }
         public int ToUserId { get; set; }
+        public bool AlignRight { get; set; }
+        public bool AlignLeft { get; set; }
     }
 }

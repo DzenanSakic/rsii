@@ -32,7 +32,7 @@
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
                         
-                    <StackLayout Grid.ColumnSpan="2" Grid.Row="3">
+                    <StackLayout Grid.ColumnSpan="2" Grid.Row="3" HorizontalOptions="End">
                         <!--Messages-->
                         <StackLayout>
                             <ListView ItemsSource="{Binding Messages}">
@@ -40,7 +40,13 @@
                                     <DataTemplate>
                                         <ViewCell>
                                             <StackLayout Padding="10">
-                                                <StackLayout Orientation="Vertical">
+                                                <StackLayout Orientation="Vertical" HorizontalOptions="End" IsVisible="{Binding AlignRight}">
+                                                    <Label Text="{Binding Title, StringFormat='Title: \{0}'}" 
+                                                           FontSize="14" />
+                                                    <Label Text="{Binding Body, StringFormat='Body: \{0}'}" 
+                                                           FontSize="14" />
+                                                </StackLayout>
+                                                <StackLayout Orientation="Vertical" HorizontalOptions="Start" IsVisible="{Binding AlignLeft}">
                                                     <Label Text="{Binding Title, StringFormat='Title: \{0}'}" 
                                                            FontSize="14" />
                                                     <Label Text="{Binding Body, StringFormat='Body: \{0}'}" 
@@ -52,8 +58,9 @@
                                 </ListView.ItemTemplate>
                             </ListView>
                         </StackLayout>
+                        
                     </StackLayout>
-                </Grid>
+            </Grid>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

@@ -28,6 +28,7 @@ namespace AMA.MobileClient.ViewModels
             {
                 UserMessages.Clear();
 
+
                 AllMessages = await _usersService.Get<IList<MessagesResponse>>(null, $"user/messages");
                 var allSent = AllMessages.Where(x => x.ToUserId != ApiService.UserId).Select(a => a.ToUserId).ToList();
                 var allReceived = AllMessages.Where(x => x.FromUserId != ApiService.UserId).Select(a => a.FromUserId).ToList();
@@ -39,12 +40,15 @@ namespace AMA.MobileClient.ViewModels
                     var help = new ObservableCollection<MessagesResponse>();
                     foreach (var item in AllMessages.Where(x => x.ToUserId == userId || x.FromUserId == userId))
                     {
+                        item.AlignRight = item.FromUserId == ApiService.UserId ? true : false;
+                        item.AlignLeft = item.FromUserId != ApiService.UserId ? true : false;
                         help.Add(item);
                     }
                     UserMessages.Add(new UserMessagesModel
                     {
                         Messages = help,
                         User = await _usersService.Get<UsersResponse>(null, $"user/{userId}")
+                        
                     });
                 }
             }
