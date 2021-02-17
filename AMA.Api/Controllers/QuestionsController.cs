@@ -36,6 +36,14 @@ namespace AMA.Api.Controllers
             return Ok(_repositoryQuestion.Find(request));
         }
 
+        [HttpGet("find/suggested")]
+        public IActionResult FindSuggested()
+        {
+            var userId = int.Parse(User.Claims.Where(x => x.Type == "Id").FirstOrDefault().Value);
+
+            return Ok(_questionService.FindSuggested(userId));
+        }
+
         [HttpPost("add")]
         public IActionResult Add(InsertQuestionRequest request)
         {

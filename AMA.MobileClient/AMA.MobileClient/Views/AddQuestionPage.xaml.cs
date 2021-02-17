@@ -44,13 +44,6 @@ namespace AMA.MobileClient.Views
                     return;
                 }
 
-                if(!string.IsNullOrWhiteSpace(Tags.Text) || string.IsNullOrEmpty(Tags.Text))
-                {
-                    var helpString = Tags.Text;
-
-
-                }
-
                 var subCategories = new List<int>();
                 subCategories.Add(_model.SelectedSubCategory.Id);
 

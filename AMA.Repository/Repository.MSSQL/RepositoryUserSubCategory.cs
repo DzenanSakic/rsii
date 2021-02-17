@@ -38,7 +38,7 @@ namespace AMA.Repositories.Repository.MSSQL
             _context.SaveChanges();
         }
 
-        public object TryFindAll(int userId)
+        public IEnumerable<UserSubCategory> TryFindAll(int userId)
         {
             return _userSubCategoriesContext.Where(x => x.UserId == userId).ToList();
         }

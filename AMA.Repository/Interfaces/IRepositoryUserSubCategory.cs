@@ -9,6 +9,6 @@ namespace AMA.Repositories.Interfaces
         IEnumerable<UserSubCategory> FindByUserId(int userId);
         UserSubCategory Find(int userId, int subCategoryId);
         void Delete(UserSubCategory userSubCategory);
-        object TryFindAll(int userId);
+        IEnumerable<UserSubCategory> TryFindAll(int userId);
     }
 }

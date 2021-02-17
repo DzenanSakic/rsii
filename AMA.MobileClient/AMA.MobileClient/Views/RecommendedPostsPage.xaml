@@ -4,12 +4,33 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="AMA.MobileClient.Views.RecommendedPostsPage">
+             x:Class="AMA.MobileClient.Views.RecommendedPostsPage"
+             xmlns:vm="clr-namespace:AMA.MobileClient.ViewModels">
+
+
+    <ContentPage.BindingContext>
+        <vm:RecommendedPostPageViewModel/>
+    </ContentPage.BindingContext>
+
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <ListView ItemsSource="{Binding Questions}"
+                     ItemSelected="PostItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="5" StyleClass="Content">
+                                <Label Text="{Binding Question.Title, StringFormat='Title: \{0}'}" />
+                                <Label Text="{Binding SubCategoryResponse.Name, StringFormat='Sub-category: \{0}'}"/>
+                                <Label Text="{Binding AnswerCount, StringFormat='Number of asnwers: \{0}'}"/>
+                                <Label Text="{Binding HasCorrectAnswer, StringFormat='Answered: \{0}'}"/>
+                                <Label Text="{Binding Question.User.UserName, StringFormat='Asked by: \{0}'}" HorizontalOptions="End"/>
+                                <Label Text="{Binding Question.CreatedTime, StringFormat='Added on: \{0:dd MMM, yyyy}'}" HorizontalOptions="End"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

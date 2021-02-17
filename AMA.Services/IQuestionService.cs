@@ -9,5 +9,6 @@ namespace AMA.Services
         void AddQuestion(InsertQuestionRequest request, int userId);
         void Delete(Question question);
         void Edit(EditQuestionRequest request);
+        IEnumerable<Question> FindSuggested(int userId);
     }
 }

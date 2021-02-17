@@ -13,15 +13,24 @@ namespace AMA.Services
         private readonly IRepositoryAnswer _repositoryAnswer;
         private readonly IRepositoryQuestionSubCategory _repositoryQuestionSubCategory;
         private readonly IRepositoryAnswerVoting _repositoryAnswerVoting;
+        private readonly IRepositoryUserCategory _repositoryUserCategory;
+        private readonly IRepositoryUserSubCategory _repositorySubUserCategory;
+        private readonly IRepositoryUserFollow _repositoryUserFollow;
         public QuestionService(IRepositoryQuestion repositoryQuestion, 
             IRepositoryQuestionSubCategory repositoryQuestionSubCategory,
             IRepositoryAnswer repositoryAnswer,
-            IRepositoryAnswerVoting repositoryAnswerVoting)
+            IRepositoryAnswerVoting repositoryAnswerVoting,
+            IRepositoryUserCategory repositoryUserCategory,
+            IRepositoryUserSubCategory repositoryUserSubCategory,
+            IRepositoryUserFollow repositoryUserFollow)
         {
             _repositoryQuestion = repositoryQuestion;
             _repositoryQuestionSubCategory = repositoryQuestionSubCategory;
             _repositoryAnswer = repositoryAnswer;
             _repositoryAnswerVoting = repositoryAnswerVoting;
+            _repositoryUserCategory = repositoryUserCategory;
+            _repositorySubUserCategory = repositoryUserSubCategory;
+            _repositoryUserFollow = repositoryUserFollow;
         }
         public void AddQuestion(InsertQuestionRequest request, int userId)
         {
@@ -95,6 +104,59 @@ namespace AMA.Services
                 if (!string.IsNullOrEmpty(request.Body))
                     question.Body = request.Body;
             }
+        }
+
+        public IEnumerable<Question> FindSuggested(int userId)
+        {
+            var questions = _repositoryQuestion.FindAll();
+            var questionsTemp = questions.ToList();
+
+            var followedCategories = _repositoryUserCategory.TryFindAll(userId);
+            var followedSubCategories = _repositorySubUserCategory.TryFindAll(userId);
+            var followedUsers = _repositoryUserFollow.TryFindAll(userId);
+
+            List<string> tags = new List<string>();
+            var answersByUser = _repositoryAnswer.FindAllByUser(userId);
+            foreach (var a in answersByUser)
+            {
+                var question = _repositoryQuestion.TryFind(a.QuestionId);
+                if (!string.IsNullOrEmpty(question.Tags) || !string.IsNullOrWhiteSpace(question.Tags))
+                    tags.AddRange(question.Tags.Split(','));
+            }
+
+            foreach (var q in questions)
+            {
+                bool shouldRemove = true;
+
+                if(followedUsers.Any(x => x.FollowedUserId == q.UserId))
+                {
+                    shouldRemove = false;
+                    continue;
+                }
+
+                var questionSubCategory = _repositoryQuestionSubCategory.Find(q.ID).FirstOrDefault();
+                if(followedSubCategories.Any(x => x.SubCategoryId == questionSubCategory.SubCategoryId))
+                {
+                    shouldRemove = false;
+                    continue;
+                }
+
+                if(followedCategories.Any(x => x.CategoryId == questionSubCategory.SubCategory.CategoryId))
+                {
+                    shouldRemove = false;
+                    continue;
+                }
+
+                if(!string.IsNullOrWhiteSpace(q.Tags) && !string.IsNullOrEmpty(q.Tags) && tags.Any(tag => q.Tags.Contains(tag)))
+                {
+                    shouldRemove = false;
+                    continue;
+                }
+
+                if (shouldRemove)
+                    questionsTemp.Remove(q);
+            }
+            return questionsTemp;
         }
     }
 }
