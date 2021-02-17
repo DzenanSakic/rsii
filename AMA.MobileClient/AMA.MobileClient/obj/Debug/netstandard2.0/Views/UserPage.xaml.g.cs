@@ -36,23 +36,5 @@ namespace AMA.MobileClient.Views {
             messageButton = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Button>(this, "messageButton");
             payButton = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Button>(this, "payButton");
         }
-
-        private void Refresh(bool canFollow)
-        {
-            followButton = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Button>(this, "followButton");
-            unfollowButton = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Button>(this, "unfollowButton");
-
-            if (canFollow)
-            {
-                followButton.IsVisible = true;
-                unfollowButton.IsVisible = false;
-            }
-            else
-            {
-                followButton.IsVisible = false;
-                unfollowButton.IsVisible = true;
-            }
-
-        }
     }
 }

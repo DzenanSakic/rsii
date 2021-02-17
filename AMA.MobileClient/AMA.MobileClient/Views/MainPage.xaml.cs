@@ -32,9 +32,9 @@ namespace AMA.MobileClient.Views
             {
                 switch (Id)
                 {
-                    //case MenuItemType.RecommendedQuestions:
-                    //    MenuPages.Add(id, new NavigationPage(new RecommendedPostsPage()));
-                    //    break;
+                    case MenuItemType.RecommendedQuestions:
+                        MenuPages.Add(id, new NavigationPage(new RecommendedPostsPage()));
+                        break;
                     case MenuItemType.Questions:
                         MenuPages.Add(id, new NavigationPage(new HomePage()));
                         break;
@@ -51,6 +51,9 @@ namespace AMA.MobileClient.Views
                         break;
                     case MenuItemType.Messages:
                         MenuPages.Add(id, new NavigationPage(new MessagesPage()));
+                        break;
+                    case MenuItemType.Followings:
+                        MenuPages.Add(id, new NavigationPage(new FollowingsPage()));
                         break;
                 }
             }

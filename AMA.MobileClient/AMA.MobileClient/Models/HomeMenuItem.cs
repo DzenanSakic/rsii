@@ -9,7 +9,8 @@
         Logout,
         Login,
         Messages,
-        Payments
+        Payments,
+        Followings
     }
     public class HomeMenuItem
     {

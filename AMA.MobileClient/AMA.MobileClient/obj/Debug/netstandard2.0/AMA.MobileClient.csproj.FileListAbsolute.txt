@@ -63,3 +63,5 @@ C:\Users\Dzenan\Desktop\RSIIGit\rsii\AMA.MobileClient\AMA.MobileClient\obj\Debug
 C:\Users\Dzenan\Desktop\RSIIGit\rsii\AMA.MobileClient\AMA.MobileClient\obj\Debug\netstandard2.0\AMA.MobileClient.pdb
 C:\Users\Dzenan\Desktop\RSIIGit\rsii\AMA.MobileClient\AMA.MobileClient\obj\Debug\netstandard2.0\Views\PaymentPage.xaml.g.cs
 C:\Users\Dzenan\Desktop\RSIIGit\rsii\AMA.MobileClient\AMA.MobileClient\obj\Debug\netstandard2.0\XamlC.stamp
+C:\Users\Dzenan\Desktop\RSIIGit\rsii\AMA.MobileClient\AMA.MobileClient\obj\Debug\netstandard2.0\Views\FollowingsPage.xaml.g.cs
+C:\Users\Dzenan\Desktop\RSIIGit\rsii\AMA.MobileClient\AMA.MobileClient\obj\Debug\netstandard2.0\Views\RecommendedPostsPage.xaml.g.cs

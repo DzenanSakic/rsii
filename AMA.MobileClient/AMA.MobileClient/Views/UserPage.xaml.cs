@@ -1,9 +1,5 @@
 ﻿using AMA.Common.Contracts;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -34,7 +30,12 @@ namespace AMA.MobileClient.Views
             };
 
             _ = await _userService.Post<object>(request, "user/follow");
-            Refresh(false);
+
+            followButton = NameScopeExtensions.FindByName<Button>(this, "followButton");
+            unfollowButton = NameScopeExtensions.FindByName<Button>(this, "unfollowButton");
+
+            followButton.IsVisible = false;
+            unfollowButton.IsVisible = true;
         }
 
         private async void unfollowButton_Clicked(object sender, EventArgs e)
@@ -46,7 +47,12 @@ namespace AMA.MobileClient.Views
             };
 
             _ = await _userService.Delete<object>(request, "user/follow");
-            Refresh(true);
+
+            followButton = NameScopeExtensions.FindByName<Button>(this, "followButton");
+            unfollowButton = NameScopeExtensions.FindByName<Button>(this, "unfollowButton");
+
+            followButton.IsVisible = true;
+            unfollowButton.IsVisible = false;
         }
 
 

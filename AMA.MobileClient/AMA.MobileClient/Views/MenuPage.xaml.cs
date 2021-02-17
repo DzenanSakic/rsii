@@ -20,12 +20,12 @@ namespace AMA.MobileClient.Views
 
             menuItems = new List<HomeMenuItem>
             {
-                //new HomeMenuItem {Id = MenuItemType.RecommendedQuestions, Title="Recommended questions" },
+                new HomeMenuItem {Id = MenuItemType.RecommendedQuestions, Title="Recommended questions" },
                 new HomeMenuItem {Id = MenuItemType.Questions, Title="Questions" },
                 new HomeMenuItem {Id = MenuItemType.Users, Title="Users" },
+                new HomeMenuItem {Id = MenuItemType.Followings, Title="Followings" },
                 new HomeMenuItem {Id = MenuItemType.EditProfile, Title="Edit profile" },
                 new HomeMenuItem {Id = MenuItemType.Messages, Title="Messages" },
-                //new HomeMenuItem {Id = MenuItemType.Payments, Title="Payments" },
                 new HomeMenuItem {Id = MenuItemType.Logout, Title="Logout" }
             };
 
