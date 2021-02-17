@@ -31,10 +31,22 @@
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
                     <StackLayout Grid.Column="0" Grid.Row="0">
-                        <Label Text="{Binding SubCategoryResponse.Category.Name, StringFormat='Category: \{0}'}"
-                               FontSize="Small" HorizontalOptions="Start"/>
-                        <Label Text="{Binding SubCategoryResponse.Name, StringFormat='Sub-category: \{0}'}"
-                               FontSize="Small" HorizontalOptions="Start"/>
+                        <StackLayout>
+                            <Label Text="{Binding SubCategoryResponse.Category.Name, StringFormat='Category: \{0}'}"
+                                   FontSize="Small" HorizontalOptions="Start"/>
+                            <Button x:Name="followCategory" Text="Follow category" IsVisible="{Binding CanFollowCategory}"
+                                         HeightRequest="30" Clicked="followCategory_Clicked"></Button>
+                            <Button x:Name="unfollowCategory" Text="Unfollow category" IsVisible="{Binding IsFollowingCategory}"
+                                         HeightRequest="30" Clicked="unfollowCategory_Clicked"></Button>
+                        </StackLayout>
+                        <StackLayout>
+                            <Label Text="{Binding SubCategoryResponse.Name, StringFormat='Sub-category: \{0}'}"
+                                   FontSize="Small" HorizontalOptions="Start"/>
+                            <Button x:Name="followSubCategory" Text="Follow sub-category" IsVisible="{Binding CanFollowSubCategory}"
+                                         HeightRequest="30" Clicked="followSubCategory_Clicked"></Button>
+                            <Button x:Name="unfollowSubCategory" Text="Unfollow sub-category" IsVisible="{Binding IsFollowingSubCategory}"
+                                         HeightRequest="30" Clicked="unfollowSubCategory_Clicked"></Button>
+                        </StackLayout>
                     </StackLayout>
                     <StackLayout Grid.Column="1" Grid.Row="0">
                         <Label Text="{Binding Question.User.UserName, StringFormat='Added by: \{0}'}"

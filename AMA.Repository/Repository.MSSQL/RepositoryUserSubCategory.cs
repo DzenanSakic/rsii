@@ -37,5 +37,10 @@ namespace AMA.Repositories.Repository.MSSQL
             _userSubCategoriesContext.Add(userSubCategory);
             _context.SaveChanges();
         }
+
+        public object TryFindAll(int userId)
+        {
+            return _userSubCategoriesContext.Where(x => x.UserId == userId).ToList();
+        }
     }
 }

@@ -326,6 +326,21 @@ namespace AMA.Repositories.Migrations
                     b.ToTable("Users");
                 });
 
+            modelBuilder.Entity("AMA.Models.Entities.UserCategory", b =>
+                {
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.HasKey("UserId", "CategoryId");
+
+                    b.HasIndex("CategoryId");
+
+                    b.ToTable("UsersCategories");
+                });
+
             modelBuilder.Entity("AMA.Models.Entities.UserFollow", b =>
                 {
                     b.Property<int>("UserFollowingId")
@@ -541,6 +556,25 @@ namespace AMA.Repositories.Migrations
                         .IsRequired();
 
                     b.Navigation("City");
+                });
+
+            modelBuilder.Entity("AMA.Models.Entities.UserCategory", b =>
+                {
+                    b.HasOne("AMA.Models.Entities.Category", "Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("AMA.Models.Entities.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("AMA.Models.Entities.UserFollow", b =>

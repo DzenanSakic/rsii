@@ -16,5 +16,9 @@ namespace AMA.Services
         void ChangeUserState(int userId);
         void FollowUser(InsertUserFollowRequest request);
         void RemoveUserFollow(DeleteUserFollowRequest request);
+        void FollowCategory(InsertUserFollowCategoryRequest request);
+        void DeleteFollowCategory(InsertUserFollowCategoryRequest request);
+        void DeleteFollowSubCategory(InsertUserFollowSubCategoryRequest request);
+        void FollowSubCategory(InsertUserFollowSubCategoryRequest request);
     }
 }

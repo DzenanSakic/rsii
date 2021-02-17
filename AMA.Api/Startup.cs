@@ -112,6 +112,7 @@ namespace AMA.Api
             services.AddScoped<IAnswerService, AnswerService>();
             services.AddScoped<IReportService, ReportService>();
             services.AddScoped<IRepositoryUserFollow, RepositoryUserFollow>();
+            services.AddScoped<IRepositoryUserCategory, RepositoryUserCategory>();
 
             services.AddSingleton<IJwtAuthManager, JwtAuthManager>();
             services.AddSingleton<PasswordHasher>();

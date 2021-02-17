@@ -12,5 +12,9 @@ namespace AMA.MobileClient.Models
         public bool HasCorrectAnswer { get; set; }
         public int AnswerCount { get; set; }
         public bool IsAuthorOfQuestion { get; internal set; }
+        public bool IsFollowingCategory { get; internal set; }
+        public bool CanFollowCategory { get; internal set; }
+        public bool IsFollowingSubCategory { get; internal set; }
+        public bool CanFollowSubCategory { get; internal set; }
     }
 }

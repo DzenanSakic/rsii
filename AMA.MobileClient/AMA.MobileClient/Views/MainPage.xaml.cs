@@ -52,9 +52,6 @@ namespace AMA.MobileClient.Views
                     case MenuItemType.Messages:
                         MenuPages.Add(id, new NavigationPage(new MessagesPage()));
                         break;
-                    case MenuItemType.Followings:
-                        MenuPages.Add(id, new NavigationPage(new FollowingsPage()));
-                        break;
                 }
             }
 

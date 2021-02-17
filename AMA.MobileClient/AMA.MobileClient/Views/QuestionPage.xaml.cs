@@ -38,6 +38,74 @@ namespace AMA.MobileClient.Views
             _model.Answers[i] = found;
         }
 
+        private async void followSubCategory_Clicked(object sender, EventArgs e)
+        {
+            var request = new
+            {
+                UserId = ApiService.UserId,
+                SubCategoryId = _model.SubCategoryResponse.Id
+            };
+
+            _ = await _usersService.Post<object>(request, "user/sub-category/follow");
+
+            followSubCategory = NameScopeExtensions.FindByName<Button>(this, "followSubCategory");
+            unfollowSubCategory = NameScopeExtensions.FindByName<Button>(this, "unfollowSubCategory");
+
+            followSubCategory.IsVisible = false;
+            unfollowSubCategory.IsVisible = true;
+        }
+        
+        private async void unfollowSubCategory_Clicked(object sender, EventArgs e)
+        {
+            var request = new
+            {
+                UserId = ApiService.UserId,
+                SubCategoryId = _model.SubCategoryResponse.Id
+            };
+
+            _ = await _usersService.Delete<object>(request, "user/sub-category/follow");
+
+            followSubCategory = NameScopeExtensions.FindByName<Button>(this, "followSubCategory");
+            unfollowSubCategory = NameScopeExtensions.FindByName<Button>(this, "unfollowSubCategory");
+
+            followSubCategory.IsVisible = true;
+            unfollowSubCategory.IsVisible = false;
+        }
+
+        private async void followCategory_Clicked(object sender, EventArgs e)
+        {
+            var request = new
+            {
+                UserId = ApiService.UserId,
+                CategoryId = _model.SubCategoryResponse.Category.Id
+            };
+
+            _ = await _usersService.Post<object>(request, "user/category/follow");
+
+            followCategory = NameScopeExtensions.FindByName<Button>(this, "followCategory");
+            unfollowCategory = NameScopeExtensions.FindByName<Button>(this, "unfollowCategory");
+
+            followCategory.IsVisible = false;
+            unfollowCategory.IsVisible = true;
+        }
+
+        private async void unfollowCategory_Clicked(object sender, EventArgs e)
+        {
+            var request = new
+            {
+                UserId = ApiService.UserId,
+                CategoryId = _model.SubCategoryResponse.Category.Id
+            };
+
+            _ = await _usersService.Delete<object>(request, "user/category/follow");
+
+            followCategory = NameScopeExtensions.FindByName<Button>(this, "followCategory");
+            unfollowCategory = NameScopeExtensions.FindByName<Button>(this, "unfollowCategory");
+
+            followCategory.IsVisible = true;
+            unfollowCategory.IsVisible = false;
+        }
+
         private async void deleteButton_Clicked(object sender, EventArgs e)
         {
             var answer = (AnswerResponse)((Button)sender).BindingContext;

@@ -15,6 +15,8 @@ namespace AMA.Services
         private readonly IRepositoryMessage _repositoryMessage;
         private readonly IRepositoryPayment _repositoryPayment;
         private readonly IRepositoryUserFollow _repositoryUserFollow;
+        private readonly IRepositoryUserCategory _repositoryUserCategory;
+        private readonly IRepositoryUserSubCategory _repositoryUserSubCategory;
         private readonly PasswordHasher _passwordHasher;
         public UserService(IRepositoryUser repositoryUser,
             IRepositoryUserRole repositoryUserRole,
@@ -22,7 +24,9 @@ namespace AMA.Services
             IRepositoryMessage repositoryMessage,
             PasswordHasher passwordHasher,
             IRepositoryPayment repositoryPayment,
-            IRepositoryUserFollow repositoryUserFollow)
+            IRepositoryUserFollow repositoryUserFollow,
+            IRepositoryUserCategory userCategory,
+            IRepositoryUserSubCategory repositoryUserSubCategory)
         {
             _repositoryUser = repositoryUser;
             _repositoryUserRole = repositoryUserRole;
@@ -31,6 +35,8 @@ namespace AMA.Services
             _passwordHasher = passwordHasher;
             _repositoryPayment = repositoryPayment;
             _repositoryUserFollow = repositoryUserFollow;
+            _repositoryUserCategory = userCategory;
+            _repositoryUserSubCategory = repositoryUserSubCategory;
         }
         public bool IsValidUserCredentials(string username, string password)
         {
@@ -165,6 +171,38 @@ namespace AMA.Services
             var exist = _repositoryUserFollow.TryFind(request.UserFollowingId, request.FollowedUserId);
             if (exist != null)
                 _repositoryUserFollow.Remove(exist);
+        }
+
+        public void FollowCategory(InsertUserFollowCategoryRequest request)
+        {
+            var exist = _repositoryUserCategory.TryFind(request.UserId, request.CategoryId);
+            if (exist != null)
+                return;
+
+            _repositoryUserCategory.Insert(new UserCategory { CategoryId = request.CategoryId, UserId = request.UserId });
+        }
+
+        public void DeleteFollowCategory(InsertUserFollowCategoryRequest request)
+        {
+            var exist = _repositoryUserCategory.TryFind(request.UserId, request.CategoryId);
+            if (exist != null)
+                _repositoryUserCategory.Delete(exist);
+        }
+
+        public void DeleteFollowSubCategory(InsertUserFollowSubCategoryRequest request)
+        {
+            var exist = _repositoryUserSubCategory.Find(request.UserId, request.SubCategoryId);
+            if (exist != null)
+                _repositoryUserSubCategory.Delete(exist);
+        }
+
+        public void FollowSubCategory(InsertUserFollowSubCategoryRequest request)
+        {
+            var exist = _repositoryUserSubCategory.Find(request.UserId, request.SubCategoryId);
+            if (exist != null)
+                return;
+
+            _repositoryUserSubCategory.Insert(new UserSubCategory { SubCategoryId = request.SubCategoryId, UserId = request.UserId });
         }
     }
 }

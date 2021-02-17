@@ -22,13 +22,17 @@ namespace AMA.Api.Controllers
         private readonly IRepositoryUserRole _repositoryUserRole;
         private readonly IRepositoryBan _repositoryBan;
         private readonly IRepositoryUserFollow _repositoryUserFollow;
+        private readonly IRepositoryUserCategory _repositoryUserCategory;
+        private readonly IRepositoryUserSubCategory _repositoryUserSubCategory;
         public UsersController(IUserService userService, 
             IRepositoryUser repositoryUser,
             IRepositoryMessage message,
             IRepositoryPayment repositoryPayment, 
             IRepositoryUserRole repositoryUserRole,
             IRepositoryBan repositoryBan,
-            IRepositoryUserFollow repositoryUserFollow
+            IRepositoryUserFollow repositoryUserFollow,
+            IRepositoryUserCategory repositoryUserCategory,
+            IRepositoryUserSubCategory repositoryUserSubCategory
             )
         {
             _userService = userService;
@@ -38,6 +42,8 @@ namespace AMA.Api.Controllers
             _repositoryUserRole = repositoryUserRole;
             _repositoryBan = repositoryBan;
             _repositoryUserFollow = repositoryUserFollow;
+            _repositoryUserCategory = repositoryUserCategory;
+            _repositoryUserSubCategory = repositoryUserSubCategory;
         }
 
         [HttpPost("user/register")]
@@ -235,6 +241,70 @@ namespace AMA.Api.Controllers
         {
             _userService.RemoveUserFollow(request);
             return Ok();
+        }
+
+        [HttpPost("user/category/follow")]
+        public IActionResult FollowCategory([FromBody] InsertUserFollowCategoryRequest request)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+
+            _userService.FollowCategory(request);
+            return Ok();
+        }
+
+        [HttpDelete("user/category/follow")]
+        public IActionResult DeleteFollowCategory([FromQuery] InsertUserFollowCategoryRequest request)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+
+            _userService.DeleteFollowCategory(request);
+            return Ok();
+        }
+
+        [HttpGet("user/category/followings")]
+        public IActionResult GetUserCategoryFollowings()
+        {
+            var userId = int.Parse(User.Claims.Where(x => x.Type == "Id").FirstOrDefault().Value);
+
+            return Ok(_repositoryUserCategory.TryFindAll(userId));
+        }
+
+        [HttpPost("user/sub-category/follow")]
+        public IActionResult FollowSubCategory([FromBody] InsertUserFollowSubCategoryRequest request)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+
+            _userService.FollowSubCategory(request);
+            return Ok();
+        }
+
+        [HttpDelete("user/sub-category/follow")]
+        public IActionResult DeleteFollowSubCategory([FromQuery] InsertUserFollowSubCategoryRequest request)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+
+            _userService.DeleteFollowSubCategory(request);
+            return Ok();
+        }
+
+        [HttpGet("user/sub-category/followings")]
+        public IActionResult GetUserSubCategoryFollowings()
+        {
+            var userId = int.Parse(User.Claims.Where(x => x.Type == "Id").FirstOrDefault().Value);
+
+            return Ok(_repositoryUserSubCategory.TryFindAll(userId));
         }
     }
 }
