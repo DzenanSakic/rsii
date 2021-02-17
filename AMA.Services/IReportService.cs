@@ -8,5 +8,6 @@ namespace AMA.Services
     {
         IList<UserActivityReportResponse> GetUsersActivityReport(FilterUsersActivityReport filter);
         IList<UserPerformanceReportResponse> GetUsersPerformanceReport(FilterUsersActivityReport filter);
+        IList<CategoryUsageReport> GetCategorySubCategoryUsage(FilterMostUsedCategoriesSubCategories filter);
     }
 }

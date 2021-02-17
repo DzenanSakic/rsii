@@ -65,3 +65,4 @@ C:\Users\Dzenan\Desktop\RSIIGit\rsii\AMA.AdminClient\obj\Debug\AMA.AdminClient.p
 C:\Users\Dzenan\Desktop\RSIIGit\rsii\AMA.AdminClient\obj\Debug\AMA.AdminClient.FrmReports.resources
 C:\Users\Dzenan\Desktop\RSIIGit\rsii\AMA.AdminClient\obj\Debug\AMA.AdminClient.FrmUsersActivityReport.resources
 C:\Users\Dzenan\Desktop\RSIIGit\rsii\AMA.AdminClient\obj\Debug\AMA.AdminClient.FrmUsersPerformanceReport.resources
+C:\Users\Dzenan\Desktop\RSIIGit\rsii\AMA.AdminClient\obj\Debug\AMA.AdminClient.FrmMostUsedCategoriesSubCategoriesReport.resources

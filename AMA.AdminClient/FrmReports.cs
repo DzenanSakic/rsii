@@ -1,5 +1,4 @@
-﻿using System;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace AMA.AdminClient
 {
@@ -34,6 +33,14 @@ namespace AMA.AdminClient
         private void FrmUsersPerformanceReport_Closing(object sender, FormClosingEventArgs e)
         {
             Show();
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FrmMostUsedCategoriesSubCategoriesReport frmMostUsedCategoriesSubCategoriesReport = new FrmMostUsedCategoriesSubCategoriesReport();
+            frmMostUsedCategoriesSubCategoriesReport.Show();
+            Hide();
+            frmMostUsedCategoriesSubCategoriesReport.FormClosing += FrmUsersPerformanceReport_Closing;
         }
     }
 }

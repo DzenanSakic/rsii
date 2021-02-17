@@ -51,5 +51,20 @@ namespace AMA.Api.Controllers
 
             return Ok(_reportService.GetUsersPerformanceReport(filter));
         }
+
+        [HttpGet("categories-subcategories/usage")]
+        public IActionResult MostUsedCategoriesSubCategories([FromQuery] FilterMostUsedCategoriesSubCategories filter)
+        {
+            if (filter.CityId == 0)
+                filter.CityId = null;
+
+            if (filter.CountryId == 0)
+                filter.CountryId = null;
+
+            if (filter.Gender == -1)
+                filter.Gender = null;
+
+            return Ok(_reportService.GetCategorySubCategoryUsage(filter));
+        }
     }
 }

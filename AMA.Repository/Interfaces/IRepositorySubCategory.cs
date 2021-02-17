@@ -10,6 +10,7 @@ namespace AMA.Repositories.Interfaces
         SubCategory TryFind(int id);
         SubCategory TryFind(string name);
         IEnumerable<SubCategory> TryFindAll(int categoryId);
+        IEnumerable<SubCategory> FindAll();
         void Delete(SubCategory subCategory);
     }
 }

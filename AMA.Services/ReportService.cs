@@ -13,19 +13,106 @@ namespace AMA.Services
         private readonly IRepositoryAnswer _repositoryAnswer;
         private readonly IRepositoryQuestion _repositoryQuestion;
         private readonly IRepositoryQuestionSubCategory _repositoryQuestionSubCategory;
-        private readonly IRepositoryAnswerVoting _repositoryAnswerVoting;
+        private readonly IRepositoryCategory _repositoryCategory;
+        private readonly IRepositorySubCategory _repositorySubCategory;
         public ReportService(IRepositoryUser repositoryUser, 
             IRepositoryAnswer repositoryAnswer, 
             IRepositoryQuestion repositoryQuestion,
             IRepositoryQuestionSubCategory repositoryQuestionSubCategory,
-            IRepositoryAnswerVoting repositoryAnswerVoting)
+            IRepositoryCategory repositoryCategory,
+            IRepositorySubCategory repositorySubCategory)
         {
             _repositoryUser = repositoryUser;
             _repositoryAnswer = repositoryAnswer;
             _repositoryQuestion = repositoryQuestion;
             _repositoryQuestionSubCategory = repositoryQuestionSubCategory;
-            _repositoryAnswerVoting = repositoryAnswerVoting;
+            _repositoryCategory = repositoryCategory;
+            _repositorySubCategory = repositorySubCategory;
         }
+
+        public IList<CategoryUsageReport> GetCategorySubCategoryUsage(FilterMostUsedCategoriesSubCategories filter)
+        {
+            var report = new List<CategoryUsageReport>();
+            var categories = _repositoryCategory.FindAll();
+
+            var questions = _repositoryQuestion.FindAll();
+            var questionsTemp = questions;
+
+            if (filter.CityId.HasValue)
+                questionsTemp = questionsTemp.Where(x => x.User.CityId == filter.CityId.Value);
+            else if (filter.CountryId.HasValue)
+                questionsTemp = questionsTemp.Where(x => x.User.City.Country.ID == filter.CountryId.Value);
+
+            if (filter.Gender.HasValue && filter.Gender.Value >= 0)
+                questionsTemp = questionsTemp.Where(x => (int)x.User.Gender == filter.Gender.Value);
+
+            if (filter.Year.HasValue)
+                questionsTemp = questionsTemp.Where(x => x.CreatedTime.Year == filter.Year.Value);
+
+            foreach (var category in categories)
+            {
+                var item = new CategoryUsageReport(); 
+                item.NumberOfAnswers = 0;
+                item.NumberOfQuestions = 0;
+                item.Name = category.Name;
+                item.Id = category.ID;
+                item.SubCategoryUsageReport = new List<SubCategoryUsageReport>();
+               
+
+                foreach (var question in questionsTemp)
+                {
+                    var questionSubCategory = _repositoryQuestionSubCategory.Find(question.ID).FirstOrDefault();
+                    var answers = _repositoryAnswer.FindAll(question.ID);
+
+                    if (questionSubCategory.SubCategory.CategoryId == category.ID)
+                    {
+                        item.NumberOfQuestions++;
+                        item.NumberOfAnswers += answers.Count();
+
+                        if (item.SubCategoryUsageReport.Any(x => x.Id == questionSubCategory.SubCategoryId))
+                        {
+                            var correctItem = item.SubCategoryUsageReport.FirstOrDefault(x => x.Id == questionSubCategory.SubCategoryId);
+                            correctItem.NumberOfQuestions++;
+                        }
+                        else
+                        {
+                            var newItem = new SubCategoryUsageReport();
+                            newItem.Id = questionSubCategory.SubCategoryId;
+                            newItem.CategoryId = item.Id;
+                            newItem.Name = questionSubCategory.SubCategory.Name;
+                            newItem.NumberOfAnswers += answers.Count();
+                            newItem.NumberOfQuestions = 1;
+
+                            item.SubCategoryUsageReport.Add(newItem);
+                        }
+
+                    }
+                }
+                report.Add(item);
+            }
+
+            foreach (var item in report)
+            {
+                var subCategories = _repositorySubCategory.FindAll();
+                foreach (var sc in subCategories)
+                {
+                    if(item.SubCategoryUsageReport.All(x => x.Id != sc.ID && x.CategoryId == sc.CategoryId) && item.Id == sc.CategoryId)
+                    {
+                        var newItem = new SubCategoryUsageReport();
+                        newItem.Id = sc.ID;
+                        newItem.CategoryId = item.Id;
+                        newItem.Name = sc.Name;
+                        newItem.NumberOfAnswers = 0;
+                        newItem.NumberOfQuestions = 0;
+
+                        item.SubCategoryUsageReport.Add(newItem);
+                    }
+                }
+            }
+
+            return report;
+        }
+
         public IList<UserActivityReportResponse> GetUsersActivityReport(FilterUsersActivityReport filter)
         {
             var report = new List<UserActivityReportResponse>();

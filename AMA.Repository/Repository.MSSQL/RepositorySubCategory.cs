@@ -22,6 +22,11 @@ namespace AMA.Repositories.Repository.MSSQL
             _context.SaveChanges();
         }
 
+        public IEnumerable<SubCategory> FindAll()
+        {
+            return _subCategoryContext.ToList();
+        }
+
         public void Insert(SubCategory subCategory)
         {
             _subCategoryContext.Add(subCategory);

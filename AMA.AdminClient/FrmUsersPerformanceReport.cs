@@ -35,7 +35,7 @@ namespace AMA.AdminClient
             countries.Insert(0, new CountryResponse { ID = 0, Name = "Select country" });
             cmbCountry.DataSource = countries;
             cmbCountry.DisplayMember = "Name";
-            cmbCategory.ValueMember = "ID";
+            cmbCountry.ValueMember = "ID";
         }
 
         private async void cmbCategory_SelectedIndexChanged(object sender, EventArgs e)

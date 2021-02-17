@@ -25,7 +25,7 @@ namespace AMA.Repositories.Repository.MSSQL
 
         public IEnumerable<Question> FindAll()
         {
-            return _questionContext.ToList();
+            return _questionContext.Include(x => x.User).ThenInclude(y => y.City).ThenInclude(a => a.Country).ToList();
         }
 
         public void Insert(Question question)
