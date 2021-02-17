@@ -44,6 +44,13 @@ namespace AMA.MobileClient.Views
                     return;
                 }
 
+                if(!string.IsNullOrWhiteSpace(Tags.Text) || string.IsNullOrEmpty(Tags.Text))
+                {
+                    var helpString = Tags.Text;
+
+
+                }
+
                 var subCategories = new List<int>();
                 subCategories.Add(_model.SelectedSubCategory.Id);
 
@@ -51,7 +58,8 @@ namespace AMA.MobileClient.Views
                 {
                     Title = Title.Text,
                     Body = Body.Text,
-                    SubCategories = subCategories
+                    SubCategories = subCategories,
+                    Tags = Tags.Text
                 };
 
                 await _questionsService.Post<object>(request, "add");

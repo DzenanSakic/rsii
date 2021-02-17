@@ -30,7 +30,8 @@ namespace AMA.Services
                 Body = request.Body,
                 Title = request.Title,
                 UserId = userId,
-                CreatedTime = DateTime.Now
+                CreatedTime = DateTime.Now,
+                Tags = request.Tags
             };
 
             _repositoryQuestion.Insert(question);

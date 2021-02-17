@@ -12,5 +12,6 @@ namespace AMA.Models.DTOS
         public string Body { get; set; }
         [Required]
         public List<int> SubCategories { get; set; }
+        public string Tags { get; set; }
     }
 }

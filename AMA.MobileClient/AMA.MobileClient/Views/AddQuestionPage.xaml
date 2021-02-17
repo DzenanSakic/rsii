@@ -31,7 +31,8 @@
                         ItemDisplayBinding="{Binding Name}"
                         SelectedItem="{Binding SelectedSubCategory}"></Picker>
 
-            <Label Text="Tags:"></Label>
+
+            <Label Text="Comma separated keywords for Tags:"></Label>
             <Entry x:Name="Tags" ></Entry>
 
             <Button Text="Cancel" Clicked="Cancel_Clicked"></Button>

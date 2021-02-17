@@ -14,5 +14,6 @@ namespace AMA.Models.Entities
         public User User { get; set; }
         public int UserId { get; set; }
         public DateTime CreatedTime { get; set; }
+        public string Tags { get; set; }
     }
 }
