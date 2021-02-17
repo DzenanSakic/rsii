@@ -1,4 +1,5 @@
-﻿using AMA.Common.Contracts;
+﻿using AMA.AdminClient.Views;
+using AMA.Common.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,7 +37,7 @@ namespace AMA.AdminClient
             var index = dataGridView1.SelectedCells[0].RowIndex;
             var category = dataGridView1.Rows[index].DataBoundItem as CategoryResponse;
 
-            var subCategories = await _categoriesService.Get<List<SubCategoryResponse>>(null, $"sub-categories/{category.Id}");
+            var subCategories = await _categoriesService.Get<List<SubCategoryGrid>>(null, $"sub-categories/{category.Id}");
             dataGridView2.DataSource = subCategories;
         }
 

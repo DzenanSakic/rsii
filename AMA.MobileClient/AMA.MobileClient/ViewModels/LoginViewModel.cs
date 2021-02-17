@@ -8,7 +8,7 @@ namespace AMA.MobileClient.ViewModels
 {
     public class LoginViewModel : BaseViewModel
     {
-        private ApiService _authService = new ApiService("auth");
+        private readonly ApiService _authService = new ApiService("auth");
 
         public LoginViewModel()
         {
@@ -21,14 +21,15 @@ namespace AMA.MobileClient.ViewModels
 
                     try
                     {
-                        if(!string.IsNullOrEmpty(Username) || !string.IsNullOrWhiteSpace(Username)
+                        if (!string.IsNullOrEmpty(Username) || !string.IsNullOrWhiteSpace(Username)
                         || !string.IsNullOrEmpty(Password) || !string.IsNullOrWhiteSpace(Password))
-
-                        authentication = await _authService.Post<LoginResponse>(new
                         {
-                            username = Username,
-                            password = Password
-                        }, "login");
+                            authentication = await _authService.Post<LoginResponse>(new
+                            {
+                                username = Username,
+                                password = Password
+                            }, "login");
+                        }
                     }
                     catch (Exception)
                     {
@@ -38,6 +39,12 @@ namespace AMA.MobileClient.ViewModels
 
                     if (authentication != null)
                     {
+                        if (!string.IsNullOrWhiteSpace(authentication.Message))
+                        {
+                            await Application.Current.MainPage.DisplayAlert("Error", $"Login failed: {authentication.Message}", "OK");
+                            return;
+                        }
+
                         ApiService.Token = authentication.AccessToken;
                         ApiService.Permission = authentication.Role;
                         ApiService.UserId = authentication.Id;

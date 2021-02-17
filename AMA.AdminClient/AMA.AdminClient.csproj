@@ -158,6 +158,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\CategoryUsageReportGrid.cs" />
+    <Compile Include="Views\SubCategoryGrid.cs" />
     <Compile Include="Views\SubCategoryUsageReportGrid.cs" />
     <Compile Include="Views\UsersDataGrid.cs" />
     <EmbeddedResource Include="FrmAnswer.resx">

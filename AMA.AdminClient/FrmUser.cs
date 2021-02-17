@@ -95,6 +95,8 @@ namespace AMA.AdminClient
 
                 _ = await _userService.Post<object>(editRequest, "edit");
 
+                MessageBox.Show("User edited!");
+
                 await LoadUser();
             }
             catch (Exception ex)

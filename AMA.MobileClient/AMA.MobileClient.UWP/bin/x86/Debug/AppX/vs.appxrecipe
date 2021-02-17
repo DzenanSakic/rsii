@@ -776,11 +776,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Dzenan\Desktop\RSIIGit\rsii\AMA.MobileClient\AMA.MobileClient\bin\Debug\netstandard2.0\AMA.MobileClient.dll">
       <PackagePath>AMA.MobileClient.dll</PackagePath>
-      <Modified>2021-02-17T16:09:54.960</Modified>
+      <Modified>2021-02-17T21:33:34.763</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Dzenan\Desktop\RSIIGit\rsii\AMA.MobileClient\AMA.MobileClient\bin\Debug\netstandard2.0\AMA.Common.dll">
       <PackagePath>AMA.Common.dll</PackagePath>
-      <Modified>2021-02-17T15:45:15.209</Modified>
+      <Modified>2021-02-17T21:22:08.806</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Microsoft\Xamarin\NuGet\win2d.uwp\1.20.0\lib\uap10.0\Microsoft.Graphics.Canvas.winmd">
       <PackagePath>Microsoft.Graphics.Canvas.winmd</PackagePath>

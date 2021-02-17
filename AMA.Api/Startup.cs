@@ -14,7 +14,6 @@ using AMA.Services;
 using AMA.Repositories.Interfaces;
 using AMA.Repositories.Repository.MSSQL;
 using AMA.Services.Helpers;
-using Microsoft.IdentityModel.Logging;
 using Microsoft.OpenApi.Models;
 using Stripe;
 

@@ -4,7 +4,6 @@ using AMA.Services;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Security.Claims;
@@ -21,9 +20,11 @@ namespace AMA.Api.Controllers
         private readonly IJwtAuthManager _jwtAuthManager;
         private readonly IRepositoryUser _repositoryUser;
 
-        public AuthController(IUserService userService, 
+        public AuthController(
+            IUserService userService,
             IJwtAuthManager jwtAuthManager,
-            IRepositoryUser repositoryUser)
+            IRepositoryUser repositoryUser
+            )
         {
             _userService = userService;
             _jwtAuthManager = jwtAuthManager;
@@ -47,16 +48,19 @@ namespace AMA.Api.Controllers
             var user = _repositoryUser.TryFind(request.UserName);
             var role = _userService.GetUserRole(request.UserName);
 
-            if(user.Status == Common.Enumerations.UserStatus.Blocked)
+            if (user.Status == Common.Enumerations.UserStatus.Blocked)
             {
-                return BadRequest("User is blocked");
+                return Ok(new LoginResult
+                {
+                    Message = "User blocked"
+                });
             }
 
             var claims = new[]
             {
-            new Claim("Id", user.ID.ToString()),
-            new Claim(ClaimTypes.Name, request.UserName),
-            new Claim(ClaimTypes.Role, role.Role.ToString())
+                new Claim("Id", user.ID.ToString()),
+                new Claim(ClaimTypes.Name, request.UserName),
+                new Claim(ClaimTypes.Role, role.Role.ToString())
             };
 
             var jwtResult = _jwtAuthManager.GenerateTokens(request.UserName, claims, DateTime.Now);

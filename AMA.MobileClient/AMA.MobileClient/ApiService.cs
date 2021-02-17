@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 
 namespace AMA.MobileClient
 {
-
     public class ApiService
     {
         /// <summary>
@@ -149,6 +148,5 @@ namespace AMA.MobileClient
                 return default;
             }
         }
-
     }
 }
